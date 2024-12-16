@@ -1,6 +1,7 @@
 import React from "react";
 import { NavBarViewProps } from "./types";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { LanguageSwitch } from "./Components/LanguageSwitch";
 
 type ComponentType = React.FC<NavBarViewProps>;
 export const NavBarView: ComponentType = (props) => {
@@ -46,6 +47,7 @@ export const NavBarView: ComponentType = (props) => {
               >
                 <FaWhatsapp className="h-6 w-6" />
               </a>
+              <LanguageSwitch />
             </div>
           </div>
         </div>

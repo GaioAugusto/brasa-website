@@ -1,0 +1,12 @@
+{
+  "common": {
+    "welcome": "Bem-vindo",
+    "home": "Menu",
+    "about": "Sobre nós",
+    "contact": "Contato",
+    "resources": "Resources"
+  },
+  "templates": {
+    "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!"
+  }
+}
