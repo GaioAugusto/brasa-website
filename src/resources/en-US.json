@@ -2,9 +2,11 @@
   "common": {
     "welcome": "Welcome",
     "home": "Home",
-    "about": "About me",
+    "about": "About us",
     "contact": "Contact",
-    "Recursos": "Resources"
+    "resources": "Resources",
+    "board": "Our Board",
+    "join": "Join Us"
   },
   "templates": {
     "welcomeDescription": "Be welcome to BRASA's UOFT official website"

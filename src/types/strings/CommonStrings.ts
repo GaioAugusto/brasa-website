@@ -3,4 +3,7 @@ export interface CommonStrings {
   home: string;
   about: string;
   contact: string;
+  resources: string;
+  board: string;
+  join: string;
 }

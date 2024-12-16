@@ -4,7 +4,9 @@
     "home": "Menu",
     "about": "Sobre nós",
     "contact": "Contato",
-    "resources": "Resources"
+    "resources": "Recursos",
+    "board": "Nosso Board",
+    "join": "Entre pro clube"
   },
   "templates": {
     "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!"

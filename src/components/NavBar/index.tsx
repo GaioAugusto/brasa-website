@@ -8,10 +8,10 @@ export const NavBar: ComponentType = () => {
 
   const NavBarItems: NavBarItem[] = [
     { name: commonLocale.get("home"), href: "#home" },
-    { name: "Our Board", href: "#board" },
-    { name: "Join Us", href: "#join" },
-    { name: "Resources", href: "#resources" },
-    { name: "Contact", href: "#contact" },
+    { name: commonLocale.get("board"), href: "#board" },
+    { name: commonLocale.get("join"), href: "#join" },
+    { name: commonLocale.get("resources"), href: "#resources" },
+    { name: commonLocale.get("contact"), href: "#contact" },
   ];
   return <NavBarView NavBarItems={NavBarItems} />;
 };

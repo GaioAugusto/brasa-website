@@ -7,18 +7,22 @@ export const LanguageSwitchView: ComponentType = (props) => {
   const { locale, changeLocale } = useLocale();
 
   return (
-    <div className="flex space-x-1">
-      <button onClick={() => changeLocale("pt-BR")}>
-        <Flag
-          code="BR"
-          style={{ width: "24px", height: "16px", marginRight: "8px" }}
-        />
+    <div className="flex justify-center space-x-2">
+      <button
+        onClick={() => changeLocale("pt-BR")}
+        className={`flex items-center px-2 py-1 rounded-md transition-transform transform ${
+          locale === "pt-BR" ? "border-2 border-yellow-500" : ""
+        }`}
+      >
+        <Flag code="BR" style={{ width: "24px", height: "16px" }} />
       </button>
-      <button>
-        <Flag
-          code="US"
-          style={{ width: "24px", height: "16px", marginRight: "8px" }}
-        />
+      <button
+        onClick={() => changeLocale("en-US")}
+        className={`flex items-center px-2 py-1 rounded-md transition-transform transform ${
+          locale === "en-US" ? "border-2 border-yellow-500" : ""
+        }`}
+      >
+        <Flag code="US" style={{ width: "24px", height: "16px" }} />
       </button>
     </div>
   );
