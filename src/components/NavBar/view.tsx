@@ -40,7 +40,7 @@ export const NavBarView: ComponentType = (props) => {
                 <FaInstagram className="h-6 w-6" />
               </a>
               <a
-                href="https://www.whatsapp.com"
+                href="https://chat.whatsapp.com/C6HTycGFMA2GWSmCDFjWdT"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-green-500 transition-transform duration-300 transform hover:scale-125"
