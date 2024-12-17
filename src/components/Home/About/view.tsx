@@ -7,7 +7,7 @@ import "aos/dist/aos.css"; // Import AOS styles
 type ComponentType = React.FC<AboutViewProps>;
 
 export const AboutView: ComponentType = () => {
-  const { commonLocale, templatesLocale } = useLocale();
+  const { templatesLocale } = useLocale();
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);

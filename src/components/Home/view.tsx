@@ -5,7 +5,7 @@ import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<HomeViewProps>;
 export const HomeView: ComponentType = () => {
-  const { commonLocale } = useLocale();
+  const { commonLocale, templatesLocale } = useLocale();
   return (
     <div>
       <section id="home" className="relative w-full h-screen overflow-hidden">
@@ -32,7 +32,7 @@ export const HomeView: ComponentType = () => {
             BRAZILIAN STUDENT ASSOCIATION
           </h1>
           <h2 className="text-xl italic mb-6">
-            "Empowering and guiding Brazilian students in Canada"
+            {`"${templatesLocale.get("subtitleDescription")}"`}
           </h2>
           <a href="#about">
             <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">
