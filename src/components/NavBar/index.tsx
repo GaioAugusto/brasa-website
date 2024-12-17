@@ -7,8 +7,8 @@ export const NavBar: ComponentType = () => {
   const { commonLocale } = useLocale();
 
   const NavBarItems: NavBarItem[] = [
-    { name: commonLocale.get("home"), href: "#home" },
-    { name: commonLocale.get("board"), href: "#board" },
+    { name: commonLocale.get("home"), href: "/" },
+    { name: commonLocale.get("board"), href: "/board" },
     { name: commonLocale.get("join"), href: "#join" },
     { name: commonLocale.get("resources"), href: "#resources" },
     { name: commonLocale.get("contact"), href: "#contact" },

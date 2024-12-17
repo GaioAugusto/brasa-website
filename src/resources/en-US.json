@@ -6,9 +6,13 @@
     "contact": "Contact",
     "resources": "Resources",
     "board": "Our Board",
-    "join": "Join Us"
+    "join": "Join Us",
+    "monthlyEvents": "Eventos mensais"
   },
   "templates": {
-    "welcomeDescription": "Be welcome to BRASA's UOFT official website"
+    "welcomeDescription": "Be welcome to BRASA's UOFT official website",
+    "weAreLargest": "We are the largest Brazilian student association in Canada!",
+    "clubDescription": "BRASA at UofT is a vibrant student organization dedicated to connecting Brazilian students at the University of Toronto. We participate in events, organize workshops, and foster a supportive community to redefine possibilities and empower students to achieve more. Through these initiatives, we aim to make an impact on campus and beyond, fostering collaboration, leadership, and a sense of belonging.",
+    "subtitleDescription": "Empowering and guiding Brazilian students in Canada"
   }
 }

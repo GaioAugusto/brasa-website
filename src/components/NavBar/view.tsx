@@ -12,7 +12,7 @@ export const NavBarView: ComponentType = (props) => {
         <div className="max-w-total">
           <div className="flex justify-around items-center h-16">
             <div className="flex items-center">
-              <a href="#home" className="flex justify-center items-center">
+              <a href="/" className="flex justify-center items-center">
                 <img
                   src="/GoodLogo.png"
                   alt="Logo"

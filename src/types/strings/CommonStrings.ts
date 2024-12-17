@@ -6,4 +6,5 @@ export interface CommonStrings {
   resources: string;
   board: string;
   join: string;
+  monthlyEvents: string;
 }

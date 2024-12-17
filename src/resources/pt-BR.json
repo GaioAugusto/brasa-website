@@ -6,9 +6,13 @@
     "contact": "Contato",
     "resources": "Recursos",
     "board": "Nosso Board",
-    "join": "Entre pro clube"
+    "join": "Entre pro clube",
+    "monthlyEvents": "Eventos mensais"
   },
   "templates": {
-    "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!"
+    "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!",
+    "weAreLargest": "Nós somos a maior associação estudantil brasileira no Canadá!",
+    "clubDescription": "A BRASA na UofT é uma organização estudantil vibrante dedicada a conectar estudantes brasileiros na Universidade de Toronto. Nós participamos de eventos, organizamos workshops, e fomentamos uma comunidade unida para ajudar os estudantes a alcançarem seus objetivos. Por meio dessas iniciativas, buscamos fazer impacto no campus e além, incentivando união, liderança, e senso de pertencimento.",
+    "subtitleDescription": "Guiando e apoiando estudantes brasileiros no Canadá"
   }
 }
