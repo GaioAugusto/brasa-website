@@ -1,4 +1,5 @@
 import "./App.css";
+import { Home } from "./components/Home";
 import { NavBar } from "./components/NavBar";
 
 function App() {
@@ -6,10 +7,9 @@ function App() {
     <div>
       {" "}
       <NavBar />
-      <main className="relative mt-16">
+      <main className="mt-16">
         {" "}
-        {/* <HomePage />
-        <Instructions /> */}
+        <Home />
         <h1>Hello</h1>
       </main>
     </div>

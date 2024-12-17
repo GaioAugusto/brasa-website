@@ -7,7 +7,8 @@ type ComponentType = React.FC<NavBarViewProps>;
 export const NavBarView: ComponentType = (props) => {
   return (
     <div>
-      <nav className="fixed top-0 left-0 w-full bg-green-800 text-white shadow-lg">
+      <nav className="fixed top-0 left-0 w-full bg-green-800 text-white shadow-lg z-50">
+        {" "}
         <div className="max-w-total">
           <div className="flex justify-around items-center h-16">
             <div className="flex items-center">
