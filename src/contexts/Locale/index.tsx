@@ -24,14 +24,17 @@ const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
 const LocaleProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [locale, setLocale] = useState<Locale>("en-US");
+  const [locale, setLocale] = useState<Locale>(() => {
+    return (localStorage.getItem("locale") as Locale) || "en-US";
+  });
   const [dictionary, setDictionary] = useState<ModulesIdentifier>(
-    dictionaries["en-US"]
+    dictionaries[locale]
   );
 
   const changeLocale = (newLocale: Locale) => {
     setLocale(newLocale);
     setDictionary(dictionaries[newLocale]);
+    localStorage.setItem("locale", newLocale);
   };
 
   useEffect(() => {
