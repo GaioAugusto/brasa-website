@@ -7,7 +7,12 @@
     "resources": "Recursos",
     "board": "Nosso Board",
     "join": "Entre pro clube",
-    "monthlyEvents": "Eventos mensais"
+    "monthlyEvents": "Eventos mensais",
+    "president": "Presidente",
+    "vicePresident": "Vice Presidente",
+    "finance": "Diretor de Finanças",
+    "firstYearOfficer": "Oficial de Calouros",
+    "graduateRep": "Representante de Graduate Studies"
   },
   "templates": {
     "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!",

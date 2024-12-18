@@ -7,4 +7,9 @@ export interface CommonStrings {
   board: string;
   join: string;
   monthlyEvents: string;
+  president: string;
+  vicePresident: string;
+  finance: string;
+  firstYearOfficer: string;
+  graduateRep: string;
 }

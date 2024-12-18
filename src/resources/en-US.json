@@ -7,7 +7,12 @@
     "resources": "Resources",
     "board": "Our Board",
     "join": "Join Us",
-    "monthlyEvents": "Eventos mensais"
+    "monthlyEvents": "Eventos mensais",
+    "president": "President",
+    "vicePresident": "Vice-President",
+    "finance": "Director of Finance",
+    "firstYearOfficer": "First Year Officer",
+    "graduateRep": "Graduate Studies Representative"
   },
   "templates": {
     "welcomeDescription": "Be welcome to BRASA's UOFT official website",
