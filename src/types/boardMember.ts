@@ -5,8 +5,7 @@ export interface BoardMember {
   picture: string;
   major: string;
   year?: string;
-  // position: string;
   position: keyof ModulesIdentifier["common"]; // Enforces valid keys
   city: string;
-  linkedin: string;
+  linkedin?: string;
 }

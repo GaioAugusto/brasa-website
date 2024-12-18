@@ -12,7 +12,12 @@
     "vicePresident": "Vice-President",
     "finance": "Director of Finance",
     "firstYearOfficer": "First Year Officer",
-    "graduateRep": "Graduate Studies Representative"
+    "graduateRep": "Graduate Studies Representative",
+    "eventsCoordinator": "Events Coordinator",
+    "externalRelations": "Director of External Relations",
+    "communication": "Director of Communication",
+    "utscRep": "UTSC Representative",
+    "utmRep": "UTM Representative"
   },
   "templates": {
     "welcomeDescription": "Be welcome to BRASA's UOFT official website",

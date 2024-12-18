@@ -2,6 +2,7 @@ import React from "react";
 import { HomeViewProps } from "./types";
 import { About } from "./About";
 import { useLocale } from "../../contexts/Locale";
+import { Footer } from "../Footer";
 
 type ComponentType = React.FC<HomeViewProps>;
 export const HomeView: ComponentType = () => {
@@ -44,6 +45,7 @@ export const HomeView: ComponentType = () => {
       <section id="about">
         <About />
       </section>
+      <Footer />
     </div>
   );
 };

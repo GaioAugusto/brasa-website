@@ -12,4 +12,9 @@ export interface CommonStrings {
   finance: string;
   firstYearOfficer: string;
   graduateRep: string;
+  eventsCoordinator: string;
+  externalRelations: string;
+  communication: string;
+  utscRep: string;
+  utmRep: string;
 }

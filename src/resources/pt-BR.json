@@ -12,7 +12,12 @@
     "vicePresident": "Vice Presidente",
     "finance": "Diretor de Finanças",
     "firstYearOfficer": "Oficial de Calouros",
-    "graduateRep": "Representante de Graduate Studies"
+    "graduateRep": "Representante de Graduate Studies",
+    "eventsCoordinator": "Coordenadora de Eventos",
+    "externalRelations": "Diretora de Relações Externas",
+    "communication": "Diretora de Comunicações",
+    "utscRep": "Representante de UTSC",
+    "utmRep": "Representante de UTM"
   },
   "templates": {
     "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!",

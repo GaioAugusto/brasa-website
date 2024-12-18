@@ -24,14 +24,16 @@ export const MemberView: ComponentType = ({ boardMember }) => {
         {boardMember.year && <span>{boardMember.year} Year</span>}
         <span className="block text-gray-500">{boardMember.city}</span>
       </p>
-      <a
-        href={boardMember.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-500 transition-transform duration-300 transform hover:scale-125"
-      >
-        <FaLinkedin className="h-6 w-6" />
-      </a>
+      {boardMember.linkedin && (
+        <a
+          href={boardMember.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 transition-transform duration-300 transform hover:scale-125"
+        >
+          <FaLinkedin className="h-6 w-6" />
+        </a>
+      )}
     </div>
   );
 };
