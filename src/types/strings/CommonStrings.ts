@@ -17,4 +17,5 @@ export interface CommonStrings {
   communication: string;
   utscRep: string;
   utmRep: string;
+  becomeMember: string;
 }

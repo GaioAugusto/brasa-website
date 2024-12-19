@@ -1,23 +1,31 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { NavBarItem, NavBarViewProps } from "./types";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+
+import { NavBarViewProps, NavBarItem } from "./types";
+import { LanguageSwitch } from "./Components/LanguageSwitch";
 
 export const NavBarView: React.FC<NavBarViewProps> = (props) => {
   const navigate = useNavigate();
 
   const handleNavigation = (href: string) => {
     if (href === "/") {
+      // Navigate to the home page and scroll to the top
       navigate("/", { state: { scrollTo: "top" } });
     } else if (href.startsWith("/#")) {
-      const sectionId = href.slice(2);
+      const sectionId = href.slice(2); // Remove "/#" to get the section ID
       if (window.location.pathname === "/") {
+        // If already on the home page, scroll to the section
         const section = document.getElementById(sectionId);
         if (section) {
           section.scrollIntoView({ behavior: "smooth" });
         }
       } else {
+        // Navigate to the home page and scroll to the section
         navigate("/", { state: { scrollTo: sectionId } });
       }
     } else {
+      // For other links, navigate normally
       navigate(href);
     }
   };
@@ -53,6 +61,25 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
                 {NavBarItem.name}
               </a>
             ))}
+          </div>
+          <div className="flex justify-center space-x-4">
+            <a
+              href="https://www.instagram.com/brasauoft/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-pink-500 transition-transform duration-300 transform hover:scale-125"
+            >
+              <FaInstagram className="h-6 w-6" />
+            </a>
+            <a
+              href="https://chat.whatsapp.com/C6HTycGFMA2GWSmCDFjWdT"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-green-500 transition-transform duration-300 transform hover:scale-125"
+            >
+              <FaWhatsapp className="h-6 w-6" />
+            </a>
+            <LanguageSwitch />
           </div>
         </div>
       </div>
