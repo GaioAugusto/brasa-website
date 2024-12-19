@@ -12,7 +12,6 @@ export const BoardView: ComponentType = () => {
     <div className="bg-gray-100">
       {/* Title Section */}
       <div className="relative flex flex-col w-full justify-center items-center text-center py-16 bg-green-900">
-        {/* Subtle SVG Background */}
         <svg
           className="absolute top-0 left-0 w-full h-full opacity-10"
           xmlns="http://www.w3.org/2000/svg"

@@ -6,7 +6,7 @@ import { Board } from "./components/Board";
 function App() {
   return (
     <Router>
-      <NavBar /> {/* The Navbar will remain fixed across pages */}
+      <NavBar />
       <main className="mt-16">
         <Routes>
           {/* Home Page */}
