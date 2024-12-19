@@ -8,7 +8,7 @@ export const MemberView: ComponentType = ({ boardMember }) => {
   return (
     <div
       key={boardMember.name}
-      className="flex flex-col items-center bg-gray-100 p-8 rounded-lg shadow-lg hover:shadow-2xl transition"
+      className="flex flex-col items-center bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition"
     >
       <img
         src={boardMember.picture}

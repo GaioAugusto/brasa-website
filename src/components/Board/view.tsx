@@ -9,7 +9,7 @@ type ComponentType = React.FC<BoardViewProps>;
 
 export const BoardView: ComponentType = () => {
   return (
-    <div>
+    <div className="bg-gray-100">
       {/* Title Section */}
       <div className="relative flex flex-col w-full justify-center items-center text-center py-16 bg-green-900">
         {/* Subtle SVG Background */}
@@ -34,7 +34,7 @@ export const BoardView: ComponentType = () => {
       </div>
 
       {/* Board Members */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 ">
         {boardMembers.map((member: BoardMember) => (
           <Member boardMember={member} />
         ))}

@@ -60,6 +60,7 @@ import { About } from "./About";
 import { Join } from "../Join";
 import { Footer } from "../Footer";
 import { useLocale } from "../../contexts/Locale";
+import { Divider } from "../Divider";
 
 export const HomeView: React.FC = () => {
   const { state } = useLocation() as { state: { scrollTo?: string } | null };
@@ -117,6 +118,7 @@ export const HomeView: React.FC = () => {
       <section id="about">
         <About />
       </section>
+      <Divider />
       <section className="bg-gray-100" id="join">
         <Join />
       </section>
