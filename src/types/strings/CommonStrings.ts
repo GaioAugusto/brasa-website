@@ -18,4 +18,12 @@ export interface CommonStrings {
   utscRep: string;
   utmRep: string;
   becomeMember: string;
+  generalInquiries: string;
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  subject: string;
+  message: string;
+  opportunities: string;
+  pastEvents: string;
 }

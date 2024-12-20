@@ -1,68 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { ContactViewProps } from "./types";
+import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<ContactViewProps>;
 
-export const ContactView: ComponentType = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSuccessMessage("");
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSuccessMessage("Your message has been sent successfully!");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      } else {
-        setSuccessMessage("An error occurred. Please try again.");
-      }
-    } catch (error) {
-      setSuccessMessage("An error occurred. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+export const ContactView: ComponentType = ({
+  handleSubmit,
+  formData,
+  handleInputChange,
+  isSubmitting,
+  successMessage,
+}) => {
+  const { commonLocale, templatesLocale } = useLocale();
 
   return (
-    <section className="bg-gray-50 py-12 px-4">
+    <section className="bg-gray-100 py-12 px-4 h-screen">
       <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-8">
         <h2 className="text-3xl font-bold text-center text-green-900 mb-4">
-          General Inquiries
+          {commonLocale.get("generalInquiries")}
         </h2>
         <p className="text-center text-gray-600 mb-8">
-          Want to get in touch? Fill out the form below and we’ll get back to
-          you within 48 hours.
+          {templatesLocale.get("generalInquiresDescription")}
         </p>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name Fields */}
@@ -72,7 +30,8 @@ export const ContactView: ComponentType = () => {
                 htmlFor="firstName"
                 className="block text-sm font-medium text-gray-700"
               >
-                First Name <span className="text-red-500">(required)</span>
+                {commonLocale.get("firstName")}{" "}
+                <span className="text-red-500">(required)</span>
               </label>
               <input
                 type="text"
@@ -89,7 +48,7 @@ export const ContactView: ComponentType = () => {
                 htmlFor="lastName"
                 className="block text-sm font-medium text-gray-700"
               >
-                Last Name
+                {commonLocale.get("lastName")}
               </label>
               <input
                 type="text"
@@ -108,7 +67,8 @@ export const ContactView: ComponentType = () => {
               htmlFor="email"
               className="block text-sm font-medium text-gray-700"
             >
-              Email Address <span className="text-red-500">(required)</span>
+              {commonLocale.get("emailAddress")}{" "}
+              <span className="text-red-500">(required)</span>
             </label>
             <input
               type="email"
@@ -127,7 +87,8 @@ export const ContactView: ComponentType = () => {
               htmlFor="subject"
               className="block text-sm font-medium text-gray-700"
             >
-              Subject <span className="text-red-500">(required)</span>
+              {commonLocale.get("subject")}
+              <span className="text-red-500">(required)</span>
             </label>
             <input
               type="text"
@@ -146,7 +107,8 @@ export const ContactView: ComponentType = () => {
               htmlFor="message"
               className="block text-sm font-medium text-gray-700"
             >
-              Message <span className="text-red-500">(required)</span>
+              {commonLocale.get("message")}{" "}
+              <span className="text-red-500">(required)</span>
             </label>
             <textarea
               id="message"
@@ -185,113 +147,3 @@ export const ContactView: ComponentType = () => {
     </section>
   );
 };
-// import React, { useState } from "react";
-
-// export const ContactView: React.FC = () => {
-//   const [formData, setFormData] = useState({
-//     firstName: "",
-//     lastName: "",
-//     email: "",
-//     subject: "",
-//     message: "",
-//   });
-//   const [isSubmitting, setIsSubmitting] = useState(false);
-//   const [successMessage, setSuccessMessage] = useState("");
-
-//   const handleInputChange = (
-//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-//   ) => {
-//     const { name, value } = e.target;
-//     setFormData((prev) => ({ ...prev, [name]: value }));
-//   };
-
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     setIsSubmitting(true);
-//     setSuccessMessage("");
-
-//     try {
-//       const response = await fetch("/api/contact", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(formData),
-//       });
-
-//       if (response.ok) {
-//         setSuccessMessage("Your message has been sent successfully!");
-//         setFormData({
-//           firstName: "",
-//           lastName: "",
-//           email: "",
-//           subject: "",
-//           message: "",
-//         });
-//       } else {
-//         setSuccessMessage("An error occurred. Please try again.");
-//       }
-//     } catch (error) {
-//       setSuccessMessage("An error occurred. Please try again.");
-//     } finally {
-//       setIsSubmitting(false);
-//     }
-//   };
-
-//   return (
-//     <section className="p-8">
-//       <h1 className="text-3xl font-bold text-center mb-6">Contact Us</h1>
-//       <form onSubmit={handleSubmit} className="space-y-4">
-//         <input
-//           type="text"
-//           name="firstName"
-//           placeholder="First Name"
-//           value={formData.firstName}
-//           onChange={handleInputChange}
-//           className="p-2 border rounded w-full"
-//         />
-//         <input
-//           type="text"
-//           name="lastName"
-//           placeholder="Last Name"
-//           value={formData.lastName}
-//           onChange={handleInputChange}
-//           className="p-2 border rounded w-full"
-//         />
-//         <input
-//           type="email"
-//           name="email"
-//           placeholder="Email"
-//           value={formData.email}
-//           onChange={handleInputChange}
-//           className="p-2 border rounded w-full"
-//         />
-//         <input
-//           type="text"
-//           name="subject"
-//           placeholder="Subject"
-//           value={formData.subject}
-//           onChange={handleInputChange}
-//           className="p-2 border rounded w-full"
-//         />
-//         <textarea
-//           name="message"
-//           placeholder="Message"
-//           value={formData.message}
-//           onChange={handleInputChange}
-//           className="p-2 border rounded w-full h-32"
-//         ></textarea>
-//         <button
-//           type="submit"
-//           disabled={isSubmitting}
-//           className="bg-blue-500 text-white p-2 rounded"
-//         >
-//           {isSubmitting ? "Submitting..." : "Submit"}
-//         </button>
-//         {successMessage && (
-//           <p className="text-green-500 mt-4">{successMessage}</p>
-//         )}
-//       </form>
-//     </section>
-//   );
-// };

@@ -66,7 +66,6 @@ export const HomeView: React.FC = () => {
       <section className="bg-gray-100" id="join">
         <Join />
       </section>
-      <Footer />
     </div>
   );
 };

@@ -3,7 +3,6 @@ import { BoardViewProps } from "./types";
 import { boardMembers } from "../../utilities/boardMembers";
 import { Member } from "./Member";
 import { BoardMember } from "../../types/boardMember";
-import { Footer } from "../Footer";
 
 type ComponentType = React.FC<BoardViewProps>;
 
@@ -38,7 +37,7 @@ export const BoardView: ComponentType = () => {
           <Member boardMember={member} />
         ))}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

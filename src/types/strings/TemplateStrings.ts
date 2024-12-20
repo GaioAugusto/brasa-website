@@ -4,4 +4,5 @@ export interface TemplateStrings {
   clubDescription: string;
   subtitleDescription: string;
   becomeMemberDescription: string;
+  generalInquiresDescription: string;
 }
