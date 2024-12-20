@@ -10,22 +10,22 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
 
   const handleNavigation = (href: string) => {
     if (href === "/") {
-      // Navigate to the home page and scroll to the top
       navigate("/", { state: { scrollTo: "top" } });
+    } else if (href === "/board") {
+      navigate("/board", { state: { scrollTo: "top" } }); // Ensure "scrollTo" state is passed
+    } else if (href === "/opportunities") {
+      navigate("/opportunities", { state: { scrollTo: "top" } });
     } else if (href.startsWith("/#")) {
-      const sectionId = href.slice(2); // Remove "/#" to get the section ID
+      const sectionId = href.slice(2);
       if (window.location.pathname === "/") {
-        // If already on the home page, scroll to the section
         const section = document.getElementById(sectionId);
         if (section) {
           section.scrollIntoView({ behavior: "smooth" });
         }
       } else {
-        // Navigate to the home page and scroll to the section
         navigate("/", { state: { scrollTo: sectionId } });
       }
     } else {
-      // For other links, navigate normally
       navigate(href);
     }
   };

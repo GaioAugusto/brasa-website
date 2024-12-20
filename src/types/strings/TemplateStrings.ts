@@ -5,4 +5,7 @@ export interface TemplateStrings {
   subtitleDescription: string;
   becomeMemberDescription: string;
   generalInquiresDescription: string;
+  getMoreInvolved: string;
+  soccerTeamDescription: string;
+  volleyballTeamDescription: string;
 }

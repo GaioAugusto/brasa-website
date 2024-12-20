@@ -2,7 +2,6 @@ import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { About } from "./About";
 import { Join } from "../Join";
-import { Footer } from "../Footer";
 import { useLocale } from "../../contexts/Locale";
 import { Divider } from "../Divider";
 

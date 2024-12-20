@@ -1,14 +1,13 @@
-import React, { useEffect } from "react";
-import { BoardViewProps } from "./types";
-import { boardMembers } from "../../utilities/boardMembers";
-import { Member } from "./Member";
-import { BoardMember } from "../../types/boardMember";
 import { useLocation } from "react-router-dom";
+import { OpportunitiesViewProps } from "./types";
+import { useEffect } from "react";
+import { useLocale } from "../../contexts/Locale";
+import { TeamCard } from "./components/TeamCard";
 
-type ComponentType = React.FC<BoardViewProps>;
-
-export const BoardView: ComponentType = () => {
+type ComponentType = React.FC<OpportunitiesViewProps>;
+export const OpportunitiesView: ComponentType = (props) => {
   const { state } = useLocation() as { state: { scrollTo?: string } | null };
+  const { commonLocale, templatesLocale } = useLocale();
 
   useEffect(() => {
     if (state?.scrollTo) {
@@ -26,7 +25,7 @@ export const BoardView: ComponentType = () => {
   }, [state]);
 
   return (
-    <section id="board" className="bg-gray-100">
+    <section id="opportunities" className="bg-gray-100">
       {/* Title Section */}
       <div className="relative flex flex-col w-full justify-center items-center text-center py-16 bg-green-900">
         <svg
@@ -42,20 +41,26 @@ export const BoardView: ComponentType = () => {
 
         {/* Titles */}
         <h1 className="text-3xl md:text-5xl font-bold text-white z-10">
-          Meet the Board
+          {commonLocale.get("opportunities")}
         </h1>
         <h2 className="text-2xl md:text-4xl font-bold text-yellow-300 mt-4 z-10">
-          Executive Team
+          {templatesLocale.get("getMoreInvolved")}
         </h2>
       </div>
 
-      {/* Board Members */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 ">
-        {boardMembers.map((member: BoardMember) => (
-          <Member boardMember={member} />
-        ))}
+      {/* Subtitle */}
+      <div className="text-center mt-8">
+        <h1 className="text-5xl text-green-900 font-bold">Sports Teams</h1>
       </div>
-      {/* <Footer /> */}
+
+      {/* Cards Section */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-12 max-w-7xl mx-auto">
+        <TeamCard team={props.soccerTeam} />
+        {/* title: string;
+
+        {/* Card 2 */}
+        <TeamCard team={props.volleyballTeam} />
+      </div>
     </section>
   );
 };

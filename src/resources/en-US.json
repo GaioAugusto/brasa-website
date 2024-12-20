@@ -26,7 +26,9 @@
     "subject": "Subject",
     "message": "Message",
     "opportunities": "Opportunities",
-    "pastEvents": "Past Events"
+    "pastEvents": "Past Events",
+    "soccerTeam": "Soccer Team",
+    "volleyballTeam": "Volleyball Team"
   },
   "templates": {
     "welcomeDescription": "Be welcome to BRASA's UOFT official website",
@@ -34,6 +36,9 @@
     "clubDescription": "BRASA at UofT is a vibrant student organization dedicated to connecting Brazilian students at the University of Toronto. We participate in events, organize workshops, and foster a supportive community to redefine possibilities and empower students to achieve more. Through these initiatives, we aim to make an impact on campus and beyond, fostering collaboration, leadership, and a sense of belonging.",
     "subtitleDescription": "Empowering and guiding Brazilian students in Canada",
     "becomeMemberDescription": "Join BRASA at UofT by joining our WhatsApp group chat and following us on Instagram! You will get to participate in engaging events, and make a difference on campus. With opportunities for networking, leadership, and collaboration, we’re here to help you thrive in your journey.",
-    "generalInquiresDescription": "Want to get in touch? Fill out the form below and we’ll get back to you within 48 hours."
+    "generalInquiresDescription": "Want to get in touch? Fill out the form below and we’ll get back to you within 48 hours.",
+    "getMoreInvolved": "Get even more involved!",
+    "soccerTeamDescription": "After getting 3rd place in the last season, our soccer teams is looking for new players to get the trophy!",
+    "volleyballTeamDescription": "Having reached the semi-finals twice in only 3 appearances, BRASA Volei is a very chill environment perfect for making friends and competing!"
   }
 }

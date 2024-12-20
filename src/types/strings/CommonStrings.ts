@@ -26,4 +26,6 @@ export interface CommonStrings {
   message: string;
   opportunities: string;
   pastEvents: string;
+  soccerTeam: string;
+  volleyballTeam: string;
 }
