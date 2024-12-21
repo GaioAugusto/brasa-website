@@ -1,6 +1,4 @@
-import { useLocation } from "react-router-dom";
 import { OpportunitiesViewProps } from "./types";
-import { useEffect } from "react";
 import { useLocale } from "../../contexts/Locale";
 import { TeamCard } from "./components/TeamCard";
 import { Header } from "../Header";
