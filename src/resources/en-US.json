@@ -30,7 +30,9 @@
     "soccerTeam": "Soccer Team",
     "volleyballTeam": "Volleyball Team",
     "moreInfo": "More Information",
-    "sportsTeams": "Sports Teams"
+    "sportsTeams": "Sports Teams",
+    "meetBoard": "Meet the Board",
+    "executiveTeam": "Executive Team"
   },
   "templates": {
     "welcomeDescription": "Be welcome to BRASA's UOFT official website",

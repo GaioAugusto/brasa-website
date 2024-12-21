@@ -30,7 +30,9 @@
     "soccerTeam": "Time de Futebol",
     "volleyballTeam": "Time de Vôlei",
     "moreInfo": "Saiba mais",
-    "sportsTeams": "Esportes"
+    "sportsTeams": "Esportes",
+    "meetBoard": "Conheça o Board",
+    "executiveTeam": "Time de Diretores"
   },
   "templates": {
     "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!",

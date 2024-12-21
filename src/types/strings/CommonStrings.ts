@@ -30,4 +30,6 @@ export interface CommonStrings {
   volleyballTeam: string;
   moreInfo: string;
   sportsTeams: string;
+  meetBoard: string;
+  executiveTeam: string;
 }
