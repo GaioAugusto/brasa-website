@@ -57,11 +57,12 @@ export const OpportunitiesView: ComponentType = (props) => {
 
       {/* Cards Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-12 max-w-7xl mx-auto">
-        <TeamCard team={props.soccerTeam} />
-        {/* title: string;
-
-        {/* Card 2 */}
-        <TeamCard team={props.volleyballTeam} />
+        <div className="flex flex-col">
+          <TeamCard team={props.soccerTeam} />
+        </div>
+        <div className="flex flex-col">
+          <TeamCard team={props.volleyballTeam} />
+        </div>
       </div>
     </section>
   );

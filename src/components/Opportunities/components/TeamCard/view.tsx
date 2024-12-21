@@ -12,9 +12,9 @@ export const TeamCardView: ComponentType = (props) => {
   const closeDialog = () => setIsDialogOpen(false);
   const { commonLocale } = useLocale();
   return (
-    <div>
+    <div className="flex flex-col items-center h-full text-center">
       {/* Team Card */}
-      <div className="flex flex-col items-center text-center py-8 px-6 rounded-lg shadow-lg bg-white">
+      <div className="flex flex-col items-center h-full text-center p-6 rounded-lg shadow-lg bg-white">
         <h2 className="text-2xl md:text-3xl text-green-900 font-bold mb-4">
           {props.team.title}
         </h2>
