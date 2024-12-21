@@ -8,4 +8,5 @@ export interface TemplateStrings {
   getMoreInvolved: string;
   soccerTeamDescription: string;
   volleyballTeamDescription: string;
+  dialogDescription: string;
 }

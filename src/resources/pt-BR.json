@@ -28,7 +28,9 @@
     "opportunities": "Oportunidades",
     "pastEvents": "Eventos",
     "soccerTeam": "Time de Futebol",
-    "volleyballTeam": "Time de Vôlei"
+    "volleyballTeam": "Time de Vôlei",
+    "moreInfo": "Saiba mais",
+    "sportsTeams": "Esportes"
   },
   "templates": {
     "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!",
@@ -39,6 +41,7 @@
     "generalInquiresDescription": "Quer conectar com a gente? Preencha o formulário abaixo e nós entraremos em contato em até 24 horas.",
     "getMoreInvolved": "Envolva-se ainda mais!",
     "soccerTeamDescription": "Depois de conquistar o 3º lugar na última temporada, nosso time de futebol está em busca de reforços para conquistar o título!",
-    "volleyballTeamDescription": "Tendo chegado nas semifinais 2 vezes em 3 participações, o BRASA Vôlei é um ambiente descontraído perfeito pra fazer amigos e competir!"
+    "volleyballTeamDescription": "Tendo chegado nas semifinais 2 vezes em 3 participações, o BRASA Vôlei é um ambiente descontraído perfeito pra fazer amigos e competir!",
+    "dialogDescription": "A melhor maneira de entrar pro time é mandar mensagem pro nosso capitão!"
   }
 }

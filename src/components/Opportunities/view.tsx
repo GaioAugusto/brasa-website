@@ -50,7 +50,9 @@ export const OpportunitiesView: ComponentType = (props) => {
 
       {/* Subtitle */}
       <div className="text-center mt-8">
-        <h1 className="text-5xl text-green-900 font-bold">Sports Teams</h1>
+        <h1 className="text-5xl text-green-900 font-bold">
+          {commonLocale.get("sportsTeams")}
+        </h1>
       </div>
 
       {/* Cards Section */}

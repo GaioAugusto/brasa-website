@@ -28,4 +28,6 @@ export interface CommonStrings {
   pastEvents: string;
   soccerTeam: string;
   volleyballTeam: string;
+  moreInfo: string;
+  sportsTeams: string;
 }

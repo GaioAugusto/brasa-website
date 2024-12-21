@@ -28,7 +28,9 @@
     "opportunities": "Opportunities",
     "pastEvents": "Past Events",
     "soccerTeam": "Soccer Team",
-    "volleyballTeam": "Volleyball Team"
+    "volleyballTeam": "Volleyball Team",
+    "moreInfo": "More Information",
+    "sportsTeams": "Sports Teams"
   },
   "templates": {
     "welcomeDescription": "Be welcome to BRASA's UOFT official website",
@@ -39,6 +41,7 @@
     "generalInquiresDescription": "Want to get in touch? Fill out the form below and we’ll get back to you within 48 hours.",
     "getMoreInvolved": "Get even more involved!",
     "soccerTeamDescription": "After getting 3rd place in the last season, our soccer teams is looking for new players to get the trophy!",
-    "volleyballTeamDescription": "Having reached the semi-finals twice in only 3 appearances, BRASA Volei is a very chill environment perfect for making friends and competing!"
+    "volleyballTeamDescription": "Having reached the semi-finals twice in only 3 appearances, BRASA Volei is a very chill environment perfect for making friends and competing!",
+    "dialogDescription": "The best way to join the team is to text our captain!"
   }
 }
