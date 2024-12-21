@@ -1,11 +1,14 @@
+import { useLocation } from "react-router-dom";
 import { useLocale } from "../../contexts/Locale";
 import { soccerCaptain, volleyballCaptain } from "../../utilities/teamCaptains";
 import { OpportunitiesProps, Team } from "./types";
 import { OpportunitiesView } from "./view";
+import { useEffect } from "react";
 
 type ComponentType = React.FC<OpportunitiesProps>;
 export const Opportunities: ComponentType = () => {
   const { commonLocale, templatesLocale } = useLocale();
+  const { state } = useLocation() as { state: { scrollTo?: string } | null };
 
   const soccerTeam: Team = {
     title: commonLocale.get("soccerTeam"),
@@ -27,6 +30,21 @@ export const Opportunities: ComponentType = () => {
     imageDialog: "/brasavolei2.jpeg",
     captain: volleyballCaptain,
   };
+
+  useEffect(() => {
+    if (state?.scrollTo) {
+      if (state.scrollTo === "top") {
+        // Scroll to the top of the page
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        // Scroll to a specific section
+        const section = document.getElementById(state.scrollTo);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  }, [state]);
 
   return (
     <OpportunitiesView
