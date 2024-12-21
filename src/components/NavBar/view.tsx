@@ -15,6 +15,8 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
       navigate("/board", { state: { scrollTo: "top" } }); // Ensure "scrollTo" state is passed
     } else if (href === "/opportunities") {
       navigate("/opportunities", { state: { scrollTo: "top" } });
+    } else if (href === "/events") {
+      navigate("/events", { state: { scrollTo: "top" } });
     } else if (href.startsWith("/#")) {
       const sectionId = href.slice(2);
       if (window.location.pathname === "/") {

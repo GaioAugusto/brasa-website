@@ -11,4 +11,6 @@ export interface TemplateStrings {
   dialogDescription: string;
   picnicDescription: string;
   hockeyDescription: string;
+  danceClassDescription: string;
+  studyWithUsDescription: string;
 }

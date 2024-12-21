@@ -33,8 +33,10 @@
     "sportsTeams": "Esportes",
     "meetBoard": "Conheça o Board",
     "executiveTeam": "Time de Diretores",
-    "picnic": "Welcome Picnic",
-    "hockey": "Jogo de Hóquei"
+    "picnic": "Picnic de boas vindas",
+    "hockey": "Jogo de Hóquei",
+    "danceClass": "Aula de Dança",
+    "studyWithUs": "Estude com a gente"
   },
   "templates": {
     "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!",
@@ -48,6 +50,8 @@
     "volleyballTeamDescription": "Tendo chegado nas semifinais 2 vezes em 3 participações, o BRASA Vôlei é um ambiente descontraído perfeito pra fazer amigos e competir!",
     "dialogDescription": "A melhor maneira de entrar pro time é mandar mensagem pro nosso capitão!",
     "picnicDescription": "Todo início de ano letivo, acontece o picnic de boas vindas da BRASA no High Park, onde conhecemos os alunos novos e reencontramos nossos amigos!",
-    "hockeyDescription": "Venha assistir ao Varsity Team de hóquei da UofT com a gente!"
+    "hockeyDescription": "Venha assistir ao Varsity Team de hóquei da UofT com a gente!",
+    "danceClassDescription": "Tivemos uma aula de dança brasileira, onde pudemos nos conectar com nossa cultura e aprender novos estilos!",
+    "studyWithUsDescription": "Época de finals é sempre estressante, mas estudar com amigos é um ótimo jeito de relaxar e ser produtivo ao mesmo tempo!"
   }
 }
