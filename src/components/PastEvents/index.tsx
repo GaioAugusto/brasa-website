@@ -3,6 +3,8 @@ import { PastEventsProps } from "./types";
 import { PastEventsView } from "./view";
 import picnic1 from "../../assets/images/picnicPoster.jpeg";
 import picnic2 from "../../assets/images/execs.jpeg";
+import hockey1 from "../../assets/images/hockey1.jpeg";
+import hockey2 from "../../assets/images/hockey2.jpeg";
 
 type ComponentType = React.FC<PastEventsProps>;
 export const PastEvents: ComponentType = () => {
@@ -14,6 +16,13 @@ export const PastEvents: ComponentType = () => {
       dialog: true,
       image2: picnic2,
       description: templatesLocale.get("picnicDescription"),
+    },
+    {
+      name: commonLocale.get("hockey"),
+      image: hockey1,
+      dialog: true,
+      image2: hockey2,
+      description: templatesLocale.get("hockeyDescription"),
     },
   ];
   return <PastEventsView events={pastEvents} />;

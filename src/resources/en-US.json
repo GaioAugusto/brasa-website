@@ -33,7 +33,8 @@
     "sportsTeams": "Sports Teams",
     "meetBoard": "Meet the Board",
     "executiveTeam": "Executive Team",
-    "picnic": "Welcome Picnic"
+    "picnic": "Welcome Picnic",
+    "hockey": "Hockey Game"
   },
   "templates": {
     "welcomeDescription": "Be welcome to BRASA's UOFT official website",
@@ -46,6 +47,7 @@
     "soccerTeamDescription": "After getting 3rd place in the last season, our soccer teams is looking for new players to get the trophy!",
     "volleyballTeamDescription": "Having reached the semi-finals twice in only 3 appearances, BRASA Volei is a very chill environment perfect for making friends and competing!",
     "dialogDescription": "The best way to join the team is to text our captain!",
-    "picnicDescription": "Every beginning of the school year, BRASA's welcome picnic takes place in High Park, where we meet up with our friends and get to know the new upcoming students!"
+    "picnicDescription": "Every beginning of the school year, BRASA's welcome picnic takes place in High Park, where we meet up with our friends and get to know the new upcoming students!",
+    "hockeyDescription": "Come watch the UofT Varsity Team play hockey with us!"
   }
 }

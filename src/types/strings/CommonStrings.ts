@@ -33,4 +33,5 @@ export interface CommonStrings {
   meetBoard: string;
   executiveTeam: string;
   picnic: string;
+  hockey: string;
 }

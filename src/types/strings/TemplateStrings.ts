@@ -10,4 +10,5 @@ export interface TemplateStrings {
   volleyballTeamDescription: string;
   dialogDescription: string;
   picnicDescription: string;
+  hockeyDescription: string;
 }
