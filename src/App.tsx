@@ -5,6 +5,7 @@ import { Board } from "./components/Board";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { Opportunities } from "./components/Opportunities";
+import { PastEvents } from "./components/PastEvents";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/board" element={<Board />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/opportunities" element={<Opportunities />} />
+          <Route path="/events" element={<PastEvents />} />
         </Routes>
         <Footer />
       </main>
