@@ -84,11 +84,11 @@ export const boardMembers: BoardMember[] = [
 
   {
     name: "Yasmin Martins",
-    picture: "/liliana.jpeg",
+    picture: "/yasminUtsc.jpeg",
     major: "Co-op Life Sciences (Neuroscience)",
     year: "2nd",
     position: "utscRep",
-    city: "desconhecido",
+    city: "Manaus, AM",
     linkedin: "https://www.linkedin.com/in/yasmin-ladislau-martins/",
   },
   {
