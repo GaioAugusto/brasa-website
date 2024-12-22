@@ -11,22 +11,6 @@ type ComponentType = React.FC<BoardViewProps>;
 
 export const BoardView: ComponentType = () => {
   const { commonLocale } = useLocale();
-  const { state } = useLocation() as { state: { scrollTo?: string } | null };
-
-  useEffect(() => {
-    if (state?.scrollTo) {
-      if (state.scrollTo === "top") {
-        // Scroll to the top of the page
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        // Scroll to a specific section
-        const section = document.getElementById(state.scrollTo);
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-    }
-  }, [state]);
 
   return (
     <section id="board" className="bg-gray-100">
