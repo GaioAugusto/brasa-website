@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaInstagram, FaWhatsapp, FaBars, FaTimes } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaWhatsapp,
+  FaBars,
+  FaTimes,
+  FaGlobe,
+} from "react-icons/fa";
 
 import { NavBarViewProps, NavBarItem } from "./types";
 import { LanguageSwitch } from "./Components/LanguageSwitch";
@@ -85,12 +91,12 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
                 <FaInstagram className="h-6 w-6" />
               </a>
               <a
-                href="https://chat.whatsapp.com/C6HTycGFMA2GWSmCDFjWdT"
+                href="https://www.bouncelife.com/login?from=%2Forganizations%2F668d9e15e4707a3e6f1804ed"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-green-500 transition-transform duration-300 transform hover:scale-125"
               >
-                <FaWhatsapp className="h-6 w-6" />
+                <FaGlobe className="h-6 w-6" />
               </a>
               <LanguageSwitch />
             </div>
@@ -135,12 +141,12 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
                 <FaInstagram className="h-6 w-6" />
               </a>
               <a
-                href="https://chat.whatsapp.com/C6HTycGFMA2GWSmCDFjWdT"
+                href="https://www.bouncelife.com/login?from=%2Forganizations%2F668d9e15e4707a3e6f1804ed"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-green-500 transition-transform duration-300 transform hover:scale-125"
               >
-                <FaWhatsapp className="h-6 w-6" />
+                <FaGlobe className="h-6 w-6" />
               </a>
               <LanguageSwitch />
             </div>

@@ -2,7 +2,7 @@ import { JoinViewProps } from "./types";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 import { useEffect } from "react";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaGlobe, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<JoinViewProps>;
@@ -35,12 +35,12 @@ export const JoinView: ComponentType = () => {
               <FaInstagram className="h-10 w-10" />
             </a>
             <a
-              href="https://chat.whatsapp.com/C6HTycGFMA2GWSmCDFjWdT"
+              href="https://www.bouncelife.com/login?from=%2Forganizations%2F668d9e15e4707a3e6f1804ed"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-500 transition-transform duration-300 transform hover:scale-125"
+              className="text-blue-500 transition-transform duration-300 transform hover:scale-125"
             >
-              <FaWhatsapp className="h-10 w-10" />
+              <FaGlobe className="h-10 w-10" />
             </a>
           </div>
         </div>
