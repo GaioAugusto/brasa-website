@@ -2,7 +2,7 @@ import { JoinViewProps } from "./types";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
 import { useEffect } from "react";
-import { FaGlobe, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaGlobe, FaInstagram } from "react-icons/fa";
 import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<JoinViewProps>;

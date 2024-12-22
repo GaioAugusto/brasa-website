@@ -37,4 +37,3 @@ export const MemberView: ComponentType = ({ boardMember }) => {
     </div>
   );
 };
-// className="text-white hover:text-pink-500 transition-transform duration-300 transform hover:scale-125"

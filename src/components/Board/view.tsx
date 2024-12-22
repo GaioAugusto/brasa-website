@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
 import { BoardViewProps } from "./types";
 import { boardMembers } from "../../utilities/boardMembers";
 import { Member } from "./Member";
 import { BoardMember } from "../../types/boardMember";
-import { useLocation } from "react-router-dom";
 import { Header } from "../Header";
 import { useLocale } from "../../contexts/Locale";
 
