@@ -21,12 +21,12 @@ export const boardMembers: BoardMember[] = [
   },
   {
     name: "Luísa Gerhard",
-    picture: "/gaio.jpeg",
+    picture: "/externalRelations.jpeg",
     major: "Pharmacology and Biomed Toxicology",
     year: "3rd",
     position: "externalRelations",
     city: "São Paulo, SP",
-    linkedin: "https://www.linkedin.com/in/lu%C3%ADsa-gerhard-563743260/",
+    linkedin: "https://www.linkedin.com/in/lu%C3%ADsa-naomi-gerhard-563743260/",
   },
   {
     name: "Gaio Augusto",
@@ -93,7 +93,7 @@ export const boardMembers: BoardMember[] = [
   },
   {
     name: "Yasmin Mendonça",
-    picture: "/liliana.jpeg",
+    picture: "/utmRep.jpeg",
     major: "Communications (CCIT)",
     year: "2nd",
     position: "utmRep",
