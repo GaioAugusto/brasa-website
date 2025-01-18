@@ -48,7 +48,7 @@ export const boardMembers: BoardMember[] = [
   },
   {
     name: "Carolina Galhardo",
-    picture: "/gaio.jpeg",
+    picture: "/eventsCoord2.jpeg",
     major: "Human Biology and Immunology",
     year: "3rd",
     position: "eventsCoordinator",
@@ -58,7 +58,7 @@ export const boardMembers: BoardMember[] = [
   },
   {
     name: "Bruna Borer",
-    picture: "/gaio.jpeg",
+    picture: "/dirOfCommunications.jpeg",
     major: "Psychology and Cinema Studies",
     year: "3rd",
     position: "communication",
