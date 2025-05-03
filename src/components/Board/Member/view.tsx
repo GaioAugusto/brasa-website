@@ -10,18 +10,13 @@ export const MemberView: ComponentType = ({ boardMember }) => {
       key={boardMember.name}
       className="flex flex-col items-center bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition"
     >
-      {/* <img
+      <img
         src={boardMember.picture}
         alt={boardMember.name}
-        className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mb-4"
-      /> */}
-      <img
-  src={boardMember.picture}
-  alt={boardMember.name}
-  className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover object-center mb-4"
-/>
+        className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover object-center mb-4"
+      />
       <h3 className="text-xl font-bold text-green-900">{boardMember.name}</h3>
-      <p className="text-yellow-600 mb-2">
+      <p className="font-bold text-yellow-600 mb-2">
         {commonLocale.get(boardMember.position)}
       </p>
       <p className="text-gray-700 text-center">

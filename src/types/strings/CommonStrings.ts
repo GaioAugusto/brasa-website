@@ -9,12 +9,17 @@ export interface CommonStrings {
   monthlyEvents: string;
   president: string;
   vicePresident: string;
+  coPresident: string;
   finance: string;
   firstYearOfficer: string;
   graduateRep: string;
   eventsCoordinator: string;
   externalRelations: string;
   communication: string;
+  designer: string;
+  digitalCoordinator: string;
+  alumniOutreach: string;
+  socialRepresentative: string;
   utscRep: string;
   utmRep: string;
   becomeMember: string;
