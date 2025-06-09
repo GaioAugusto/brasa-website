@@ -1,5 +1,5 @@
+import { Header } from "../../components/Header";
 import { useLocale } from "../../contexts/Locale";
-import { Header } from "../Header";
 import { EventCard } from "./components/EventCard";
 import { PastEventsViewProps } from "./types";
 

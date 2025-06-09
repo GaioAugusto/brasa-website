@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { About } from "./About";
-import { Join } from "../Join";
 import { useLocale } from "../../contexts/Locale";
-import { Divider } from "../Divider";
+import { About } from "./components/About";
+import { Join } from "./components/Join";
+import { Divider } from "../../components/Divider";
 
 export const HomeView: React.FC = () => {
   const { state } = useLocation() as { state: { scrollTo?: string } | null };

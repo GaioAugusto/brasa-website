@@ -1,7 +1,7 @@
 import { OpportunitiesViewProps } from "./types";
 import { useLocale } from "../../contexts/Locale";
 import { TeamCard } from "./components/TeamCard";
-import { Header } from "../Header";
+import { Header } from "../../components/Header";
 
 type ComponentType = React.FC<OpportunitiesViewProps>;
 export const OpportunitiesView: ComponentType = (props) => {

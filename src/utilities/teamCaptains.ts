@@ -1,4 +1,4 @@
-import { TeamCaptain } from "../components/Opportunities/types";
+import { TeamCaptain } from "../pages/Opportunities/types";
 
 export const soccerCaptain: TeamCaptain = {
   name: "Henrique Pedras",

@@ -1,4 +1,4 @@
-import { BoardMember } from "../../../types/boardMember";
+import { BoardMember } from "../../../../types/boardMember";
 
 export interface MemberProps {
   boardMember: BoardMember;
