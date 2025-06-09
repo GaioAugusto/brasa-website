@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavBar } from "./components/NavBar";
-import { Home } from "./components/Home";
-import { Board } from "./components/Board";
-import { Contact } from "./components/Contact";
+import { Contact } from "./pages/Contact";
 import { Footer } from "./components/Footer";
-import { Opportunities } from "./components/Opportunities";
-import { PastEvents } from "./components/PastEvents";
+import { Opportunities } from "./pages/Opportunities";
+import { PastEvents } from "./pages/PastEvents";
+import { Home } from "./pages/Home";
+import { Board } from "./pages/Board";
 
 function App() {
   return (

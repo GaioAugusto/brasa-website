@@ -1,6 +1,6 @@
 import { FaLinkedin } from "react-icons/fa";
 import { MemberViewProps } from "./types";
-import { useLocale } from "../../../contexts/Locale";
+import { useLocale } from "../../../../contexts/Locale";
 
 type ComponentType = React.FC<MemberViewProps>;
 export const MemberView: ComponentType = ({ boardMember }) => {

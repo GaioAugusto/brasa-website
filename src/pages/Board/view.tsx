@@ -1,9 +1,9 @@
 import { BoardViewProps } from "./types";
 import { boardMembers } from "../../utilities/boardMembers";
-import { Member } from "./Member";
 import { BoardMember } from "../../types/boardMember";
-import { Header } from "../Header";
 import { useLocale } from "../../contexts/Locale";
+import { Member } from "./components/Member";
+import { Header } from "../../components/Header";
 
 type ComponentType = React.FC<BoardViewProps>;
 
