@@ -41,7 +41,8 @@
     "picnic": "Welcome Picnic",
     "hockey": "Hockey Game",
     "danceClass": "Dance Class",
-    "studyWithUs": "Study with us"
+    "studyWithUs": "Study with us",
+    "signUp": "Sign Up"
   },
   "templates": {
     "welcomeDescription": "Be welcome to BRASA's UOFT official website",

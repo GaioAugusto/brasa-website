@@ -41,4 +41,5 @@ export interface CommonStrings {
   hockey: string;
   danceClass: string;
   studyWithUs: string;
+  signUp: string;
 }

@@ -10,6 +10,7 @@ import {
 
 import { NavBarViewProps, NavBarItem } from "./types";
 import { LanguageSwitch } from "./Components/LanguageSwitch";
+import { LoginButton } from "../LoginButton";
 
 export const NavBarView: React.FC<NavBarViewProps> = (props) => {
   const navigate = useNavigate();
@@ -90,14 +91,7 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
               >
                 <FaInstagram className="h-6 w-6" />
               </a>
-              <a
-                href="https://www.bouncelife.com/login?from=%2Forganizations%2F668d9e15e4707a3e6f1804ed"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-green-500 transition-transform duration-300 transform hover:scale-125"
-              >
-                <FaGlobe className="h-6 w-6" />
-              </a>
+              <LoginButton />
               <LanguageSwitch />
             </div>
           </div>
@@ -140,14 +134,7 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
               >
                 <FaInstagram className="h-6 w-6" />
               </a>
-              <a
-                href="https://www.bouncelife.com/login?from=%2Forganizations%2F668d9e15e4707a3e6f1804ed"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-green-500 transition-transform duration-300 transform hover:scale-125"
-              >
-                <FaGlobe className="h-6 w-6" />
-              </a>
+              <LoginButton />
               <LanguageSwitch />
             </div>
           </div>
