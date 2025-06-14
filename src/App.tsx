@@ -6,13 +6,12 @@ import { Opportunities } from "./pages/Opportunities";
 import { PastEvents } from "./pages/PastEvents";
 import { Home } from "./pages/Home";
 import { Board } from "./pages/Board";
+import { LoginPage } from "./pages/LoginPage";
 
 function App() {
   return (
     <Router>
-      {/* Fixed Navbar */}
       <NavBar />
-      {/* Add margin or padding at the top to offset the fixed NavBar */}
       <main className="bg-gray-100 mt-16">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -20,6 +19,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/opportunities" element={<Opportunities />} />
           <Route path="/events" element={<PastEvents />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
         <Footer />
       </main>
