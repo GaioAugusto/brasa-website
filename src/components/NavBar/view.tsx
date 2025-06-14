@@ -91,7 +91,7 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
               >
                 <FaInstagram className="h-6 w-6" />
               </a>
-              <LoginButton />
+              <LoginButton mode={"dark"} />
               <LanguageSwitch />
             </div>
           </div>
@@ -134,7 +134,7 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
               >
                 <FaInstagram className="h-6 w-6" />
               </a>
-              <LoginButton />
+              <LoginButton mode={"dark"} />
               <LanguageSwitch />
             </div>
           </div>
