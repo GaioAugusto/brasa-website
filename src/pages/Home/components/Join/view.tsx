@@ -35,7 +35,7 @@ export const JoinView: ComponentType = () => {
             >
               <FaInstagram className="h-10 w-10" />
             </a>
-            <LoginButton />
+            <LoginButton mode={"light"} />
           </div>
         </div>
 
