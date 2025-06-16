@@ -17,6 +17,7 @@ import { useNavigate, Link as RouterLink } from "react-router-dom";
 import { ReactComponent as EyeOpen } from "../../assets/svg/eye-open-svgrepo-com.svg";
 import { ReactComponent as EyeClosed } from "../../assets/svg/eye-close-svgrepo-com.svg";
 import { LoginPageViewProps } from "./types";
+import { AvatarIcon } from "../../components/AvatarIcon";
 
 type ComponentType = React.FC<LoginPageViewProps>;
 export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
@@ -35,17 +36,7 @@ export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
       <Card sx={{ width: 360, px: 3, py: 4, boxShadow: 4 }}>
         <CardContent sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
           <Box sx={{ textAlign: "center" }}>
-            <Avatar
-              sx={{
-                bgcolor: "success.main",
-                width: 56,
-                height: 56,
-                margin: "0 auto 8px",
-              }}
-            ></Avatar>
-            <Typography variant="h5" fontWeight={600}>
-              Login
-            </Typography>
+            <AvatarIcon title="Login" />
           </Box>
 
           <Box component="form" onSubmit={handleSubmit} sx={{ gap: 2 }}>
@@ -69,7 +60,6 @@ export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton
-                      //onClick={() => setShowPassword((prev) => !prev)}
                       edge="end"
                       onClick={() =>
                         props.setShowPassword((prev: boolean) => !prev)
@@ -123,7 +113,7 @@ export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
             </Link>
             <Link
               component={RouterLink}
-              to="#"
+              to="/register"
               underline="hover"
               variant="body2"
             >

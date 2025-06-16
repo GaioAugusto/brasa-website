@@ -7,6 +7,7 @@ import { PastEvents } from "./pages/PastEvents";
 import { Home } from "./pages/Home";
 import { Board } from "./pages/Board";
 import { LoginPage } from "./pages/LoginPage";
+import { RegisterPage } from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/opportunities" element={<Opportunities />} />
           <Route path="/events" element={<PastEvents />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
         <Footer />
       </main>
