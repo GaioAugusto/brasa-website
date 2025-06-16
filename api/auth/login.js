@@ -2,13 +2,15 @@ import { findUser } from "../../services/googleSheetService.js";
 import bcrypt from "bcryptjs";
 
 export default async function handler(req, res) {
+  console.log("⇢ RECEIVED:", req.headers["content-type"]); // <— add this
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed." });
   }
 
-  const { username, password } = req.body;
+  const { email, password } = req.body;
 
-  const user = await findUser(username);
+  const user = await findUser(email);
 
   if (!user) {
     return res.status(404).json({ error: "User not found." });
