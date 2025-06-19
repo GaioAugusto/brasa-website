@@ -24,14 +24,11 @@ export const LoginPage: ComponentType = () => {
       });
 
       if (!res.ok) {
-        // API returns JSON only on handled errors (404/401), but a 500 will be text
         let msg = "Unexpected error";
         try {
           const err = await res.json();
           msg = err.error ?? msg;
-        } catch {
-          /* text/plain case */
-        }
+        } catch {}
         throw new Error(msg);
       }
 
