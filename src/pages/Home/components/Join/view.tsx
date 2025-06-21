@@ -1,9 +1,10 @@
 import { JoinViewProps } from "./types";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
+import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { FaGlobe, FaInstagram } from "react-icons/fa";
-import { useLocale } from "../../contexts/Locale";
+import { FaInstagram } from "react-icons/fa";
+import { useLocale } from "../../../../contexts/Locale";
+import { LoginButton } from "../../../../components/LoginButton";
 
 type ComponentType = React.FC<JoinViewProps>;
 
@@ -34,14 +35,7 @@ export const JoinView: ComponentType = () => {
             >
               <FaInstagram className="h-10 w-10" />
             </a>
-            <a
-              href="https://www.bouncelife.com/login?from=%2Forganizations%2F668d9e15e4707a3e6f1804ed"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 transition-transform duration-300 transform hover:scale-125"
-            >
-              <FaGlobe className="h-10 w-10" />
-            </a>
+            <LoginButton mode={"light"} />
           </div>
         </div>
 

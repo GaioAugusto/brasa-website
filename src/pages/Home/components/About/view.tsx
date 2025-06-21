@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { AboutViewProps } from "./types";
-import { useLocale } from "../../../contexts/Locale";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import AOS styles
+import { useLocale } from "../../../../contexts/Locale";
 
 type ComponentType = React.FC<AboutViewProps>;
 
