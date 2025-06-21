@@ -1,3 +1,4 @@
+import { Account } from "../Account";
 import { RegisterPageProps } from "./types";
 import { RegisterPageView } from "./view";
 
@@ -30,7 +31,14 @@ export const RegisterPage: ComponentType = () => {
         throw new Error(msg);
       }
 
-      alert("Login successful");
+      alert("User registered successfully");
+      return (
+        <Account
+          email={body.email}
+          firstName={body.firstName}
+          lastName={body.lastName}
+        />
+      );
     } catch (err: any) {
       alert(err.message);
     }

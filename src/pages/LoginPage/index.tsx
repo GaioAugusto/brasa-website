@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { LoginPageProps } from "./types";
 import { LoginPageView } from "./view";
+import { Account } from "../Account";
+import { useNavigate } from "react-router-dom";
 
 type ComponentType = React.FC<LoginPageProps>;
 export const LoginPage: ComponentType = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -19,8 +22,8 @@ export const LoginPage: ComponentType = () => {
     try {
       const res = await fetch("/api/auth/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" }, // ✅ exact value
-        body: JSON.stringify(body), // ✅ real JSON
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
       });
 
       if (!res.ok) {
@@ -32,7 +35,7 @@ export const LoginPage: ComponentType = () => {
         throw new Error(msg);
       }
 
-      alert("Login successful");
+      navigate("/account", { state: { email: body.email } });
     } catch (err: any) {
       alert(err.message);
     }
