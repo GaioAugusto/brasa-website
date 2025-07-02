@@ -1,4 +1,4 @@
-import { Account } from "../Account";
+import { BrasaCard } from "../Account/components/BrasaCard";
 import { RegisterPageProps } from "./types";
 import { RegisterPageView } from "./view";
 
@@ -33,7 +33,7 @@ export const RegisterPage: ComponentType = () => {
 
       alert("User registered successfully");
       return (
-        <Account
+        <BrasaCard
           email={body.email}
           firstName={body.firstName}
           lastName={body.lastName}

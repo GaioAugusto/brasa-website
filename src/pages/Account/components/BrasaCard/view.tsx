@@ -1,11 +1,10 @@
 import { Avatar, Box, Card, Divider, Typography } from "@mui/material";
-import { AccountViewProps } from "./types";
+import { BrasaCardViewProps } from "./types";
+import { useAuth } from "../../../../contexts/auth";
 
-type ComponentType = React.FC<AccountViewProps>;
-export const AccountView: ComponentType = (props) => {
-  const email = "test@gmail.com";
-  const firstName = "first name";
-  const lastName = "last name";
+type ComponentType = React.FC<BrasaCardViewProps>;
+export const BrasaCardView: ComponentType = ({ ...props }) => {
+  const { user } = useAuth();
   return (
     <Box
       sx={{
@@ -63,8 +62,8 @@ export const AccountView: ComponentType = (props) => {
             color="text.primary"
             sx={{ textAlign: "center", mb: 0.5 }}
           >
-            {firstName && lastName
-              ? `${firstName} ${lastName}`
+            {user
+              ? `${user.firstName} ${user.lastName}`
               : "First Name Last Name"}
           </Typography>
           <Typography
@@ -72,7 +71,7 @@ export const AccountView: ComponentType = (props) => {
             color="text.secondary"
             sx={{ textAlign: "center", mb: 2 }}
           >
-            {email || "email@example.com"}
+            {user ? user.email : "email@example.com"}
           </Typography>
 
           <Divider />

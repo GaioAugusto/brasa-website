@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  FaInstagram,
-  FaWhatsapp,
-  FaBars,
-  FaTimes,
-  FaGlobe,
-} from "react-icons/fa";
+import { FaInstagram, FaBars, FaTimes } from "react-icons/fa";
 
 import { NavBarViewProps, NavBarItem } from "./types";
 import { LanguageSwitch } from "./Components/LanguageSwitch";
 import { LoginButton } from "../LoginButton";
+import { useAuth } from "../../contexts/auth";
+import { AccountButton } from "../AccountButton";
 
 export const NavBarView: React.FC<NavBarViewProps> = (props) => {
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -91,7 +88,11 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
               >
                 <FaInstagram className="h-6 w-6" />
               </a>
-              <LoginButton mode={"dark"} />
+              {user == null ? (
+                <LoginButton mode={"dark"} />
+              ) : (
+                <AccountButton mode={"dark"} />
+              )}
               <LanguageSwitch />
             </div>
           </div>
@@ -134,7 +135,11 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
               >
                 <FaInstagram className="h-6 w-6" />
               </a>
-              <LoginButton mode={"dark"} />
+              {user == null ? (
+                <LoginButton mode="dark" />
+              ) : (
+                <AccountButton mode="dark" />
+              )}
               <LanguageSwitch />
             </div>
           </div>

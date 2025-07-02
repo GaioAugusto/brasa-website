@@ -8,26 +8,29 @@ import { Home } from "./pages/Home";
 import { Board } from "./pages/Board";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
-import { Account } from "./pages/Account";
+import { AuthProvider } from "./contexts/auth";
+import { AccountMenu } from "./pages/Account";
 
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <main className="bg-gray-100 mt-16">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/board" element={<Board />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/opportunities" element={<Opportunities />} />
-          <Route path="/events" element={<PastEvents />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/account" element={<Account />} /> {/* ← no props */}
-        </Routes>
-        <Footer />
-      </main>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <NavBar />
+        <main className="bg-gray-100 mt-16">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/board" element={<Board />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/opportunities" element={<Opportunities />} />
+            <Route path="/events" element={<PastEvents />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/account" element={<AccountMenu />} />
+          </Routes>
+          <Footer />
+        </main>
+      </Router>
+    </AuthProvider>
   );
 }
 
