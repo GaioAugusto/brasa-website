@@ -31,7 +31,6 @@ export const RegisterPage: ComponentType = () => {
         throw new Error(msg);
       }
 
-      alert("User registered successfully");
       return (
         <BrasaCard
           email={body.email}
