@@ -1,43 +1,26 @@
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/auth";
 import { BrasaCard } from "../Account/components/BrasaCard";
 import { RegisterPageProps } from "./types";
 import { RegisterPageView } from "./view";
 
 type ComponentType = React.FC<RegisterPageProps>;
 export const RegisterPage: ComponentType = () => {
+  const navigate = useNavigate();
+  const { register } = useAuth();
+
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-
     const data = new FormData(e.currentTarget);
-
-    const body = {
-      email: data.get("email") as string,
-      firstName: data.get("firstName") as string,
-      lastName: data.get("lastName") as string,
-      password: data.get("password") as string,
-    };
-
     try {
-      const res = await fetch("api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+      await register({
+        email: data.get("email") as string,
+        firstName: data.get("firstName") as string,
+        lastName: data.get("lastName") as string,
+        password: data.get("password") as string,
       });
-      if (!res.ok) {
-        let msg = "Unexpected error";
-        try {
-          const err = await res.json();
-          msg = err.error ?? msg;
-        } catch {}
-        throw new Error(msg);
-      }
 
-      return (
-        <BrasaCard
-          email={body.email}
-          firstName={body.firstName}
-          lastName={body.lastName}
-        />
-      );
+      navigate("/account");
     } catch (err: any) {
       alert(err.message);
     }

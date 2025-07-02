@@ -1,36 +1,49 @@
 // src/contexts/AuthContext.tsx
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { User } from "../../types/user";
-import { AuthContextType } from "./types";
+import { loginUser, registerUser } from "../../services/authService";
+import { fetchUserInfo } from "../../services/userService";
 
-const AuthContext = createContext<AuthContextType>({
-  user: null,
-  login: async () => {},
-  logout: () => {},
-});
+interface AuthContextType {
+  user: User | null;
+  register: (payload: {
+    email: string;
+    firstName: string;
+    lastName: string;
+    password: string;
+  }) => Promise<void>;
+  login: (email: string, password: string) => Promise<void>;
+  logout: () => void;
+}
+
+const AuthContext = createContext<AuthContextType>(null!);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<User | null>(null);
 
+  // Rehydrate on load
   useEffect(() => {
     const saved = localStorage.getItem("brasa-user");
-    if (saved) {
-      setUser(JSON.parse(saved));
-    }
+    if (saved) setUser(JSON.parse(saved));
   }, []);
 
+  const register = async (payload: {
+    email: string;
+    firstName: string;
+    lastName: string;
+    password: string;
+  }) => {
+    await registerUser(payload);
+    await login(payload.email, payload.password);
+  };
+
   const login = async (email: string, password: string) => {
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    if (!res.ok) throw new Error((await res.json()).error);
-    const info = await fetch(
-      `/api/utilities/getUserInfo?email=${encodeURIComponent(email)}`
-    ).then((r) => r.json());
+    await loginUser({ email, password });
+
+    const info = await fetchUserInfo(email);
+
     setUser(info);
     localStorage.setItem("brasa-user", JSON.stringify(info));
   };
@@ -41,7 +54,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, register, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
