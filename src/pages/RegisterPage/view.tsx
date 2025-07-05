@@ -29,8 +29,10 @@ export const RegisterPageView: ComponentType = (props) => {
       <Card sx={{ width: 360, px: 3, py: 4, boxShadow: 4 }}>
         <CardContent sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
           <AvatarIcon title="Create Account" />
-
-          <RegisterForm handleSubmit={props.handleSubmit} />
+          <RegisterForm
+            loading={props.loading}
+            handleSubmit={props.handleSubmit}
+          />
         </CardContent>
       </Card>
     </Box>

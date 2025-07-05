@@ -6,6 +6,7 @@ import {
   Card,
   CardContent,
   Checkbox,
+  CircularProgress,
   FormControlLabel,
   IconButton,
   InputAdornment,
@@ -83,15 +84,19 @@ export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
               control={<Checkbox name="remember" color="success" />}
               label="Remember me"
             />
-
             <Button
               variant="contained"
               type="submit"
               fullWidth
-              sx={{ mt: 1, py: 1.2 }}
+              disabled={props.loading}
+              sx={{ mt: 1, py: 1.2, position: "relative" }}
               color="success"
             >
-              Sign In
+              {props.loading ? (
+                <CircularProgress size={24} color="inherit" />
+              ) : (
+                "Sign In"
+              )}
             </Button>
           </Box>
 

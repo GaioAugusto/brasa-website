@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  CircularProgress,
   IconButton,
   InputAdornment,
   TextField,
@@ -101,10 +102,15 @@ export const RegisterFormView: ComponentType = (props) => {
         variant="contained"
         type="submit"
         fullWidth
-        sx={{ mt: 1, py: 1.2 }}
+        disabled={props.loading} // ← disable while loading
+        sx={{ mt: 1, py: 1.2, position: "relative" }}
         color="success"
       >
-        Create Account
+        {props.loading ? (
+          <CircularProgress size={24} color="inherit" /> // ← spinner
+        ) : (
+          "Create Account"
+        )}
       </Button>
     </Box>
   );
