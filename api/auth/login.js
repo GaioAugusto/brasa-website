@@ -2,8 +2,6 @@ import { findUser } from "../../services/googleSheetService.js";
 import bcrypt from "bcryptjs";
 
 export default async function handler(req, res) {
-  console.log("⇢ RECEIVED:", req.headers["content-type"]);
-
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed." });
   }

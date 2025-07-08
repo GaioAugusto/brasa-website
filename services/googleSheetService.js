@@ -8,6 +8,7 @@ import path from "path";
 //     "utf-8"
 //   )
 // );
+
 const credentials = JSON.parse(process.env.GOOGLE_SA_KEY);
 
 const auth = new google.auth.GoogleAuth({
@@ -21,14 +22,15 @@ export const appendUser = async (
   email,
   firstName,
   lastName,
+  studentId,
   hashedPassword
 ) => {
   await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEET_ID,
-    range: "Users!A:D", // A=email, B=first, C=last, D=hash
+    range: "Users!A:E", // A=email, B=first, C=last, D=studentId, E=hash
     valueInputOption: "RAW",
     requestBody: {
-      values: [[email, firstName, lastName, hashedPassword]],
+      values: [[email, firstName, lastName, studentId, hashedPassword]],
     },
   });
 };
@@ -36,7 +38,7 @@ export const appendUser = async (
 export const findUser = async (email) => {
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: process.env.GOOGLE_SHEET_ID,
-    range: "Users!A:D",
+    range: "Users!A:E",
   });
 
   const rows = res.data.values || [];
@@ -45,6 +47,6 @@ export const findUser = async (email) => {
   const match = dataRows.find((row) => row[0] === email);
   if (!match) return null;
 
-  const [e, firstName, lastName, password] = match;
-  return { email: e, firstName, lastName, password };
+  const [e, firstName, lastName, studentId, password] = match;
+  return { email: e, firstName, lastName, studentId, password };
 };

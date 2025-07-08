@@ -5,7 +5,7 @@ import { useAuth } from "../../../../contexts/auth";
 type ComponentType = React.FC<BrasaCardViewProps>;
 export const BrasaCardView: ComponentType = ({ ...props }) => {
   const { user } = useAuth();
-  console.log(user?.studentId);
+
   return (
     <Box
       sx={{
