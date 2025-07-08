@@ -2,6 +2,7 @@ import { appendUser, findUser } from "../../services/googleSheetService.js";
 import { hashPassword } from "../../utils/auth.js";
 
 export default async function handler(req, res) {
+  console.log("arrived here", req.body);
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
