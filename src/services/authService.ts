@@ -2,6 +2,7 @@ export interface RegisterPayload {
   email: string;
   firstName: string;
   lastName: string;
+  studentId: string;
   password: string;
 }
 
@@ -20,7 +21,7 @@ export async function registerUser(data: RegisterPayload) {
     const err = await res.json().catch(() => ({}));
     throw new Error(err.error || "Registration failed");
   }
-  return data; // or return created user if API returns it
+  return data;
 }
 
 export async function loginUser(data: LoginPayload) {

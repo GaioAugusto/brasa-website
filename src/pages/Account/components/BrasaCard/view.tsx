@@ -5,6 +5,7 @@ import { useAuth } from "../../../../contexts/auth";
 type ComponentType = React.FC<BrasaCardViewProps>;
 export const BrasaCardView: ComponentType = ({ ...props }) => {
   const { user } = useAuth();
+  console.log(user?.studentId);
   return (
     <Box
       sx={{
@@ -82,16 +83,7 @@ export const BrasaCardView: ComponentType = ({ ...props }) => {
                 Student ID
               </Typography>
               <Typography variant="body2" color="text.primary">
-                <strong>#########</strong>
-              </Typography>
-            </Box>
-
-            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-              <Typography variant="body2" color="text.secondary">
-                Member ID
-              </Typography>
-              <Typography variant="body2" color="text.primary">
-                <strong>BR-2025-XXX</strong>
+                <strong>{user?.studentId}</strong>
               </Typography>
             </Box>
 

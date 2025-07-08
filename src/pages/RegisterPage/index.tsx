@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/auth";
-import { BrasaCard } from "../Account/components/BrasaCard";
 import { RegisterPageProps } from "./types";
 import { RegisterPageView } from "./view";
 import { useState } from "react";
@@ -20,6 +19,7 @@ export const RegisterPage: ComponentType = () => {
         email: data.get("email") as string,
         firstName: data.get("firstName") as string,
         lastName: data.get("lastName") as string,
+        studentId: data.get("studentId") as string,
         password: data.get("password") as string,
       });
 

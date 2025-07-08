@@ -45,6 +45,14 @@ export const RegisterFormView: ComponentType = (props) => {
         margin="normal"
       />
       <TextField
+        label="Student Id"
+        type="text"
+        name="studentId"
+        fullWidth
+        required
+        margin="normal"
+      />
+      <TextField
         label="Password"
         type={props.showPassword ? "text" : "password"}
         name="password"

@@ -1,4 +1,3 @@
-// src/contexts/AuthContext.tsx
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { User } from "../../types/user";
 import { loginUser, registerUser } from "../../services/authService";
@@ -10,6 +9,7 @@ interface AuthContextType {
     email: string;
     firstName: string;
     lastName: string;
+    studentId: string;
     password: string;
   }) => Promise<void>;
   login: (email: string, password: string) => Promise<void>;
@@ -23,7 +23,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [user, setUser] = useState<User | null>(null);
 
-  // Rehydrate on load
   useEffect(() => {
     const saved = localStorage.getItem("brasa-user");
     if (saved) setUser(JSON.parse(saved));
@@ -33,6 +32,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     email: string;
     firstName: string;
     lastName: string;
+    studentId: string;
     password: string;
   }) => {
     await registerUser(payload);

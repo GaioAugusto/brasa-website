@@ -6,8 +6,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { email, password, firstName, lastName } = req.body || {};
-  if (!email || !password || !firstName || !lastName) {
+  const { email, password, firstName, lastName, studentId } = req.body || {};
+  if (!email || !password || !firstName || !lastName || !studentId) {
     return res.status(400).json({ error: "Missing fields" });
   }
 
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
   }
 
   const hashed = await hashPassword(password);
-  await appendUser(email, firstName, lastName, hashed);
+  await appendUser(email, firstName, lastName, studentId, hashed);
 
   return res.status(201).json({ message: "User registered!" });
 }
