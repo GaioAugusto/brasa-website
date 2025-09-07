@@ -2,14 +2,14 @@ import { google } from "googleapis";
 import { readFileSync } from "fs";
 import path from "path";
 
-const credentials = JSON.parse(
-  readFileSync(
-    path.join(process.cwd(), "credentials/google-credentials.json"),
-    "utf-8"
-  )
-);
+// const credentials = JSON.parse(
+//   readFileSync(
+//     path.join(process.cwd(), "credentials/google-credentials.json"),
+//     "utf-8"
+//   )
+// );
 
-// const credentials = JSON.parse(process.env.GOOGLE_SA_KEY);
+const credentials = JSON.parse(process.env.GOOGLE_SA_KEY);
 
 const auth = new google.auth.GoogleAuth({
   credentials,
