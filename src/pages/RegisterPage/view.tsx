@@ -1,13 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  IconButton,
-  InputAdornment,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Card, CardContent } from "@mui/material";
 import { RegisterPageViewProps } from "./types";
 import { RegisterForm } from "./components/RegisterForm";
 import { AvatarIcon } from "../../components/AvatarIcon";
