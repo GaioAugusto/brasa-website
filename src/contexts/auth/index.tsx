@@ -36,7 +36,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     password: string;
   }) => {
     await registerUser(payload);
-    await login(payload.email, payload.password);
   };
 
   const login = async (email: string, password: string) => {
