@@ -23,7 +23,7 @@ export const RegisterPage: ComponentType = () => {
         password: data.get("password") as string,
       });
 
-      navigate("/account");
+      // navigate("/account");
     } catch (err: any) {
       alert(err.message);
     } finally {
