@@ -13,4 +13,5 @@ export interface TemplateStrings {
   hockeyDescription: string;
   danceClassDescription: string;
   studyWithUsDescription: string;
+  emailVerificationDescription: string;
 }

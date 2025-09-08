@@ -42,4 +42,5 @@ export interface CommonStrings {
   danceClass: string;
   studyWithUs: string;
   signUp: string;
+  emailVerification: string;
 }

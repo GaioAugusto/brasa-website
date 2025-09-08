@@ -42,7 +42,8 @@
     "hockey": "Jogo de Hóquei",
     "danceClass": "Aula de Dança",
     "studyWithUs": "Estude com a gente",
-    "signUp": "Criar conta"
+    "signUp": "Criar conta",
+    "emailVerification": "Verificação no email necessária"
   },
   "templates": {
     "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!",
@@ -58,6 +59,7 @@
     "picnicDescription": "Todo início de ano letivo, acontece o picnic de boas vindas da BRASA no High Park, onde conhecemos os alunos novos e reencontramos nossos amigos!",
     "hockeyDescription": "Venha assistir ao Varsity Team de hóquei da UofT com a gente!",
     "danceClassDescription": "Tivemos uma aula de dança brasileira, onde pudemos nos conectar com nossa cultura e aprender novos estilos!",
-    "studyWithUsDescription": "Época de finals é sempre estressante, mas estudar com amigos é um ótimo jeito de relaxar e ser produtivo ao mesmo tempo!"
+    "studyWithUsDescription": "Época de finals é sempre estressante, mas estudar com amigos é um ótimo jeito de relaxar e ser produtivo ao mesmo tempo!",
+    "emailVerificationDescription": "Um email de verificação será enviado pra você dentro dos próximos 5 minutos. Clique no link para autenticar seu email!"
   }
 }

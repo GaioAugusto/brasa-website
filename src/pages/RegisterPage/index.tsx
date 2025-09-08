@@ -1,15 +1,19 @@
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/auth";
 import { RegisterPageProps } from "./types";
 import { RegisterPageView } from "./view";
 import { useState } from "react";
+import React from "react";
+import { Modal, Typography } from "antd";
+import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<RegisterPageProps>;
 export const RegisterPage: ComponentType = () => {
-  const navigate = useNavigate();
   const { register } = useAuth();
+  const { commonLocale, templatesLocale } = useLocale();
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -39,14 +43,28 @@ export const RegisterPage: ComponentType = () => {
       setError(err.message);
     } finally {
       setLoading(false);
+      setIsModalOpen(true);
     }
   };
 
   return (
-    <RegisterPageView
-      loading={loading}
-      handleSubmit={handleSubmit}
-      error={error}
-    />
+    <React.Fragment>
+      <RegisterPageView
+        loading={loading}
+        handleSubmit={handleSubmit}
+        error={error}
+      />
+      <Modal
+        title={commonLocale.get("emailVerification")}
+        closable
+        open={isModalOpen}
+        onCancel={() => setIsModalOpen(false)}
+        footer={null}
+      >
+        <Typography>
+          {templatesLocale.get("emailVerificationDescription")}
+        </Typography>
+      </Modal>
+    </React.Fragment>
   );
 };
