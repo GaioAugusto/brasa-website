@@ -1,55 +1,57 @@
+// VerifyPage.tsx (or VerifyAccount)
 import { useLocation, useNavigate } from "react-router-dom";
-import { VerifyAccountProps } from "./types";
-import { VerifyAccountView } from "./view";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 
-type ComponentType = React.FC<VerifyAccountProps>;
-export const VerifyAccount: ComponentType = (props) => {
+export default function VerifyPage() {
   const navigate = useNavigate();
-
-  const { search } = useLocation();
-  const token = new URLSearchParams(search).get("token");
-
-  const [status, setStatus] = useState<"loading" | "success" | "error">(
-    "loading"
+  const token = useMemo(
+    () => new URLSearchParams(window.location.search).get("token"),
+    []
   );
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [msg, setMsg] = useState("");
 
-  useEffect(() => {
+  const handleVerify = async () => {
     if (!token) {
       setStatus("error");
       setMsg("Missing token.");
       return;
     }
-    (async () => {
-      try {
-        const res = await fetch("/api/auth/verifyEmail", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ token }),
-        });
-        const j = await res.json().catch(() => ({}));
-        if (!res.ok) throw new Error(j.error || "Verification failed.");
-        setStatus("success");
-        // optional: auto-redirect after 1.5s
-        setTimeout(() => navigate("/login"), 1500);
-      } catch (e: any) {
-        setStatus("error");
-        setMsg(e.message);
-      }
-    })();
-  }, [token, navigate]);
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/verify-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest", // helps server distinguish
+        },
+        body: JSON.stringify({ token }),
+        credentials: "include",
+      });
+      const j = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(j.error || "Verification failed.");
+      setStatus("success");
+      setTimeout(() => navigate("/login"), 1500);
+    } catch (e: any) {
+      setStatus("error");
+      setMsg(e.message);
+    }
+  };
 
-  if (status === "loading")
-    return <div style={{ padding: 24 }}>Verifying your email…</div>;
-  if (status === "error")
-    return (
-      <div style={{ padding: 24 }}>
-        <h2>Verification failed</h2>
-        <p>{msg}</p>
-        <button onClick={() => navigate("/resend")}>Resend verification</button>
-      </div>
-    );
-
-  return <VerifyAccountView />;
-};
+  return (
+    <div style={{ padding: 24 }}>
+      <h2>Email verification</h2>
+      {status === "idle" && (
+        <>
+          <p>Click the button below to confirm your email.</p>
+          <button onClick={handleVerify}>Verify my email</button>
+        </>
+      )}
+      {status === "loading" && <p>Verifying…</p>}
+      {status === "success" && <p>✅ Verified! Redirecting to login…</p>}
+      {status === "error" && <p style={{ color: "red" }}>❌ {msg}</p>}
+    </div>
+  );
+}
