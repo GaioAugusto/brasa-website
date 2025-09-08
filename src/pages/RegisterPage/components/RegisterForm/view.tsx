@@ -59,26 +59,30 @@ export const RegisterFormView: ComponentType = (props) => {
         fullWidth
         required
         margin="normal"
+        error={!!props.error && props.error.includes("Passwords")}
+        helperText={
+          props.error && props.error.includes("Passwords")
+            ? props.error
+            : undefined
+        }
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
               <IconButton
                 edge="end"
                 onClick={() => props.setShowPassword((prev: boolean) => !prev)}
-                aria-label={
-                  props.showPassword ? "Hide password" : "Show password"
-                }
               >
                 {props.showPassword ? (
                   <EyeClosed style={{ width: 20, height: 20 }} />
                 ) : (
                   <EyeOpen style={{ width: 20, height: 20 }} />
-                )}{" "}
+                )}
               </IconButton>
             </InputAdornment>
           ),
         }}
       />
+
       <TextField
         label="Confirm Password"
         type={props.showPassword ? "text" : "password"}
@@ -86,36 +90,25 @@ export const RegisterFormView: ComponentType = (props) => {
         fullWidth
         required
         margin="normal"
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton
-                edge="end"
-                onClick={() => props.setShowPassword((prev: boolean) => !prev)}
-                aria-label={
-                  props.showPassword ? "Hide password" : "Show password"
-                }
-              >
-                {props.showPassword ? (
-                  <EyeClosed style={{ width: 20, height: 20 }} />
-                ) : (
-                  <EyeOpen style={{ width: 20, height: 20 }} />
-                )}{" "}
-              </IconButton>
-            </InputAdornment>
-          ),
-        }}
+        error={!!props.error && props.error.includes("Passwords")}
       />
+
+      {props.error && !props.error.includes("Passwords") && (
+        <Typography color="error" sx={{ mt: 1 }}>
+          {props.error}
+        </Typography>
+      )}
+
       <Button
         variant="contained"
         type="submit"
         fullWidth
-        disabled={props.loading} // ← disable while loading
+        disabled={props.loading}
         sx={{ mt: 1, py: 1.2, position: "relative" }}
         color="success"
       >
         {props.loading ? (
-          <CircularProgress size={24} color="inherit" /> // ← spinner
+          <CircularProgress size={24} color="inherit" />
         ) : (
           "Create Account"
         )}

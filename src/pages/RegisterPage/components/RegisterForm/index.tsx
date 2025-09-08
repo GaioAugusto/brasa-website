@@ -11,6 +11,7 @@ export const RegisterForm: ComponentType = (props) => {
       showPassword={showPassword}
       setShowPassword={setShowPassword}
       handleSubmit={props.handleSubmit}
+      error={props.error}
     />
   );
 };

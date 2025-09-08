@@ -8,28 +8,45 @@ type ComponentType = React.FC<RegisterPageProps>;
 export const RegisterPage: ComponentType = () => {
   const navigate = useNavigate();
   const { register } = useAuth();
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
+
     const data = new FormData(e.currentTarget);
+    const password = data.get("password") as string;
+    const confirmPassword = data.get("confirmPassword") as string;
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      setLoading(false);
+      return;
+    }
+
     try {
       await register({
         email: data.get("email") as string,
         firstName: data.get("firstName") as string,
         lastName: data.get("lastName") as string,
         studentId: data.get("studentId") as string,
-        password: data.get("password") as string,
+        password,
       });
-
       // navigate("/account");
     } catch (err: any) {
-      alert(err.message);
+      setError(err.message);
     } finally {
       setLoading(false);
     }
   };
 
-  return <RegisterPageView loading={loading} handleSubmit={handleSubmit} />;
+  return (
+    <RegisterPageView
+      loading={loading}
+      handleSubmit={handleSubmit}
+      error={error}
+    />
+  );
 };

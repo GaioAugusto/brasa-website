@@ -1,10 +1,12 @@
 export interface RegisterFormProps {
-  loading: boolean;
-  handleSubmit: React.FormEventHandler<HTMLFormElement>;
+  readonly loading: boolean;
+  readonly handleSubmit: React.FormEventHandler<HTMLFormElement>;
+  readonly error: string | null;
 }
 export interface RegisterFormViewProps {
-  loading: boolean;
-  showPassword: boolean;
-  setShowPassword: React.Dispatch<React.SetStateAction<boolean>>;
-  handleSubmit: React.FormEventHandler<HTMLFormElement>;
+  readonly loading: boolean;
+  readonly showPassword: boolean;
+  readonly setShowPassword: React.Dispatch<React.SetStateAction<boolean>>;
+  readonly handleSubmit: React.FormEventHandler<HTMLFormElement>;
+  readonly error: string | null;
 }

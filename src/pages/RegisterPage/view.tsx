@@ -23,6 +23,7 @@ export const RegisterPageView: ComponentType = (props) => {
           <RegisterForm
             loading={props.loading}
             handleSubmit={props.handleSubmit}
+            error={props.error}
           />
         </CardContent>
       </Card>
