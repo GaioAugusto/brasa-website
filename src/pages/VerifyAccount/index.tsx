@@ -23,7 +23,7 @@ export const VerifyAccount: ComponentType = () => {
     }
     setStatus("loading");
     try {
-      const res = await fetch("/api/verifyEmail", {
+      const res = await fetch("/api/auth/verifyEmail", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
