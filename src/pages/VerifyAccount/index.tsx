@@ -1,8 +1,10 @@
 // VerifyPage.tsx (or VerifyAccount)
 import { useLocation, useNavigate } from "react-router-dom";
 import { useMemo, useState } from "react";
+import { VerifyAccountProps } from "./types";
 
-export default function VerifyPage() {
+type ComponentType = React.FC<VerifyAccountProps>;
+export const VerifyAccount: ComponentType = () => {
   const navigate = useNavigate();
   const token = useMemo(
     () => new URLSearchParams(window.location.search).get("token"),
@@ -54,4 +56,4 @@ export default function VerifyPage() {
       {status === "error" && <p style={{ color: "red" }}>❌ {msg}</p>}
     </div>
   );
-}
+};
