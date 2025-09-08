@@ -41,17 +41,10 @@ export async function appendUser(user) {
   await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEET_ID,
     range: USERS_RANGE,
-    valueInputOption: "RAW",
+    valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
-        [
-          email,
-          firstName,
-          lastName,
-          studentId,
-          passwordHash,
-          verified ? "TRUE" : "FALSE",
-        ],
+        [email, firstName, lastName, studentId, passwordHash, !!verified],
       ],
     },
   });
@@ -92,17 +85,10 @@ async function updateUserRow(rowIndex, user) {
   await sheets.spreadsheets.values.update({
     spreadsheetId: process.env.GOOGLE_SHEET_ID,
     range,
-    valueInputOption: "RAW",
+    valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
-        [
-          email,
-          firstName,
-          lastName,
-          studentId,
-          passwordHash,
-          verified ? "TRUE" : "FALSE",
-        ],
+        [email, firstName, lastName, studentId, passwordHash, !!verified],
       ],
     },
   });
