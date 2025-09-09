@@ -38,7 +38,6 @@ export const RegisterPage: ComponentType = () => {
         studentId: data.get("studentId") as string,
         password,
       });
-      // navigate("/account");
     } catch (err: any) {
       setError(err.message);
     } finally {

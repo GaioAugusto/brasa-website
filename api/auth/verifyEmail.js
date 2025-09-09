@@ -1,4 +1,3 @@
-// pages/api/verify-email.js
 import crypto from "crypto";
 import {
   findTokenByHash,

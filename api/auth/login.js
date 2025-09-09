@@ -24,7 +24,7 @@ export default async function handler(req, res) {
       });
     }
 
-    const hashed = user.passwordHash ?? user.password; // backward compat
+    const hashed = user.passwordHash ?? user.password;
     if (!hashed) {
       return res.status(500).json({ error: "User password not set." });
     }

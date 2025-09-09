@@ -14,7 +14,6 @@ export const NavBarView: React.FC<NavBarViewProps> = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleNavigation = (href: string) => {
-    // Close the mobile menu after navigation
     setIsMenuOpen(false);
 
     if (href === "/") {
