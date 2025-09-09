@@ -2,6 +2,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { VerifyAccountProps } from "./types";
+import { VerifyAccountView } from "./view";
 
 type ComponentType = React.FC<VerifyAccountProps>;
 export const VerifyAccount: ComponentType = () => {
@@ -10,10 +11,8 @@ export const VerifyAccount: ComponentType = () => {
     () => new URLSearchParams(window.location.search).get("token"),
     []
   );
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
-  const [msg, setMsg] = useState("");
+  const [status, setStatus] = useState<string>("idle");
+  const [msg, setMsg] = useState<string>("");
 
   const handleVerify = async () => {
     if (!token) {
@@ -43,17 +42,10 @@ export const VerifyAccount: ComponentType = () => {
   };
 
   return (
-    <div style={{ padding: 24 }}>
-      <h2>Email verification</h2>
-      {status === "idle" && (
-        <>
-          <p>Click the button below to confirm your email.</p>
-          <button onClick={handleVerify}>Verify my email</button>
-        </>
-      )}
-      {status === "loading" && <p>Verifying…</p>}
-      {status === "success" && <p>✅ Verified! Redirecting to login…</p>}
-      {status === "error" && <p style={{ color: "red" }}>❌ {msg}</p>}
-    </div>
+    <VerifyAccountView
+      status={status}
+      message={msg}
+      handleVerify={handleVerify}
+    />
   );
 };
