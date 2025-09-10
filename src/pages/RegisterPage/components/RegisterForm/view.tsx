@@ -45,7 +45,7 @@ export const RegisterFormView: ComponentType = (props) => {
         margin="normal"
       />
       <TextField
-        label="Student Number"
+        label="Student Id"
         type="text"
         name="studentId"
         fullWidth
