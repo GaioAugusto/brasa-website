@@ -43,4 +43,5 @@ export interface CommonStrings {
   studyWithUs: string;
   signUp: string;
   emailVerification: string;
+  createAccount: string;
 }

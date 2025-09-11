@@ -2,9 +2,11 @@ import { Box, Card, CardContent } from "@mui/material";
 import { RegisterPageViewProps } from "./types";
 import { RegisterForm } from "./components/RegisterForm";
 import { AvatarIcon } from "../../components/AvatarIcon";
+import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<RegisterPageViewProps>;
 export const RegisterPageView: ComponentType = (props) => {
+  const { commonLocale } = useLocale();
   return (
     <Box
       sx={{
@@ -19,7 +21,7 @@ export const RegisterPageView: ComponentType = (props) => {
     >
       <Card sx={{ width: 360, px: 3, py: 4, boxShadow: 4 }}>
         <CardContent sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          <AvatarIcon title="Create Account" />
+          <AvatarIcon title={commonLocale.get("createAccount")} />
           <RegisterForm
             loading={props.loading}
             handleSubmit={props.handleSubmit}

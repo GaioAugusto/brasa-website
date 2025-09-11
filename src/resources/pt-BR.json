@@ -43,7 +43,8 @@
     "danceClass": "Aula de Dança",
     "studyWithUs": "Estude com a gente",
     "signUp": "Criar conta",
-    "emailVerification": "Verificação no email necessária"
+    "emailVerification": "Verificação no email necessária",
+    "createAccount": "Criar conta"
   },
   "templates": {
     "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!",

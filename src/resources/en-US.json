@@ -43,7 +43,8 @@
     "danceClass": "Dance Class",
     "studyWithUs": "Study with us",
     "signUp": "Sign Up",
-    "emailVerification": "Email verification Required"
+    "emailVerification": "Email verification Required",
+    "createAccount": "Create Account"
   },
   "templates": {
     "welcomeDescription": "Be welcome to BRASA's UOFT official website",
