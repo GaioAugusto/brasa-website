@@ -11,9 +11,12 @@ import {
 import { RegisterFormViewProps } from "./types";
 import { ReactComponent as EyeOpen } from "../../../../assets/svg/eye-open-svgrepo-com.svg";
 import { ReactComponent as EyeClosed } from "../../../../assets/svg/eye-close-svgrepo-com.svg";
+import { useLocale } from "../../../../contexts/Locale";
 
 type ComponentType = React.FC<RegisterFormViewProps>;
 export const RegisterFormView: ComponentType = (props) => {
+  const { commonLocale } = useLocale();
+
   return (
     <Box component="form" onSubmit={props.handleSubmit} sx={{ gap: 2 }}>
       <Typography variant="body1" sx={{ mb: 2 }}>
@@ -110,7 +113,7 @@ export const RegisterFormView: ComponentType = (props) => {
         {props.loading ? (
           <CircularProgress size={24} color="inherit" />
         ) : (
-          "Create Account"
+          commonLocale.get("createAccount")
         )}
       </Button>
     </Box>
