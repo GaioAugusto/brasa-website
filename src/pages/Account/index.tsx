@@ -12,10 +12,11 @@ import {
 import { useAuth } from "../../contexts/auth";
 import { useNavigate } from "react-router-dom";
 import { BrasaCard } from "./components/BrasaCard";
+import { AccountMenuProps, MenuKey } from "./types";
+import { AccountMenuView } from "./view";
 
-type MenuKey = "card" | "settings";
-
-export const AccountMenu: React.FC = () => {
+type ComponentType = React.FC<AccountMenuProps>;
+export const AccountMenu: ComponentType = () => {
   const [active, setActive] = useState<MenuKey>("card");
   const { user, logout } = useAuth();
   const navigate = useNavigate();
@@ -26,62 +27,11 @@ export const AccountMenu: React.FC = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", minHeight: "calc(100vh - 4rem)" }}>
-      {/* Sidebar */}
-      <Box
-        component="nav"
-        sx={{
-          width: 240,
-          borderRight: 1,
-          borderColor: "divider",
-          bgcolor: "background.paper",
-        }}
-      >
-        <List>
-          <ListItemButton
-            selected={active === "card"}
-            onClick={() => setActive("card")}
-          >
-            <ListItemText primary="My BRASA Card" />
-          </ListItemButton>
-
-          {/* future items */}
-          <ListItemButton
-            selected={active === "settings"}
-            onClick={() => setActive("settings")}
-          >
-            <ListItemText primary="Settings" />
-          </ListItemButton>
-        </List>
-
-        <Divider />
-
-        <Box sx={{ p: 1 }}>
-          <Button
-            variant="outlined"
-            color="error"
-            fullWidth
-            onClick={handleLogout}
-          >
-            Logout
-          </Button>
-        </Box>
-      </Box>
-
-      {/* Main Content */}
-      <Box sx={{ flex: 1, bgcolor: "grey.100", p: 3 }}>
-        {active === "card" && user ? (
-          <BrasaCard
-            firstName={user.firstName}
-            lastName={user.lastName}
-            email={user.email}
-          />
-        ) : active === "card" ? (
-          <Typography>Please log in to see your card.</Typography>
-        ) : (
-          <Typography>Settings coming soon!</Typography>
-        )}
-      </Box>
-    </Box>
+    <AccountMenuView
+      active={active}
+      user={user}
+      setActive={setActive}
+      handleLogout={handleLogout}
+    />
   );
 };
