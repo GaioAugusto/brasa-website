@@ -22,10 +22,17 @@ export const RegisterPage: ComponentType = () => {
 
     const data = new FormData(e.currentTarget);
     const password = data.get("password") as string;
+    const email = data.get("email") as string;
     const confirmPassword = data.get("confirmPassword") as string;
 
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
+      setLoading(false);
+      return;
+    }
+
+    if (!email.endsWith("@mail.utoronto.ca")) {
+      setError("Please enter a UofT email.");
       setLoading(false);
       return;
     }
