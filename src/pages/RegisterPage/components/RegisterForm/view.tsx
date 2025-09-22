@@ -46,6 +46,9 @@ export const RegisterFormView: ComponentType = (props) => {
         fullWidth
         required
         margin="normal"
+        helperText={
+          props.error && props.error.includes("email") ? props.error : undefined
+        }
       />
       <TextField
         label="Student Number"
