@@ -1,6 +1,7 @@
 import { Avatar, Box, Card, Divider, Typography } from "@mui/material";
 import { BrasaCardViewProps } from "./types";
 import { useAuth } from "../../../../contexts/auth";
+import { AvatarIcon } from "../../../../components/AvatarIcon";
 
 type ComponentType = React.FC<BrasaCardViewProps>;
 export const BrasaCardView: ComponentType = ({ ...props }) => {
@@ -25,7 +26,7 @@ export const BrasaCardView: ComponentType = ({ ...props }) => {
           overflow: "hidden",
         }}
       >
-        {/* Header bar with BRASA green */}
+        {/* Header bar */}
         <Box
           sx={{
             display: "flex",
@@ -36,15 +37,34 @@ export const BrasaCardView: ComponentType = ({ ...props }) => {
             py: 1.5,
           }}
         >
-          <Avatar
-            src="/avatar-placeholder.png"
-            alt="Profile"
+          <Box
             sx={{
-              width: 64,
-              height: 64,
-              border: "2px solid #fff",
+              display: "flex",
+              alignItems: "center",
             }}
-          />
+          >
+            <Box
+              sx={{
+                width: 64,
+                height: 64,
+                borderRadius: "50%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                bgcolor: "#2E7D32",
+              }}
+            >
+              <Avatar
+                sx={{
+                  width: 50,
+                  height: 50,
+                  color: "white",
+                }}
+              />
+            </Box>
+          </Box>
+
+          {/* Right logo */}
           <Box
             component="img"
             src="/LogoUofT2021.png"
@@ -92,7 +112,7 @@ export const BrasaCardView: ComponentType = ({ ...props }) => {
                 Valid Until
               </Typography>
               <Typography variant="body2" color="text.primary">
-                <strong>Dec 2025</strong>
+                <strong>May 2026</strong>
               </Typography>
             </Box>
           </Box>
