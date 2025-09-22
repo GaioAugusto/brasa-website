@@ -108,14 +108,14 @@ export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
               mt: 1,
             }}
           >
-            <Link
+            {/* <Link
               component={RouterLink}
               to="#"
               underline="hover"
               variant="body2"
             >
               Forgot password?
-            </Link>
+            </Link> */}
             <Link
               component={RouterLink}
               to="/register"
