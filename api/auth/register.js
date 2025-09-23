@@ -116,7 +116,7 @@ export default async function handler(req, res) {
       <p>Hi ${firstName},</p>
       <p>Thanks for signing up for BRASA Card!</p>
       <p><a href="${verifyUrl}">Click here to verify your email</a></p>
-      <p>This link expires in 30 minutes.</p>
+      <p>This link expires in 5 hours.</p>
       <p>- BRASA at UofT</p>
     `,
   });
