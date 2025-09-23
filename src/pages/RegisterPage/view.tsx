@@ -1,8 +1,9 @@
-import { Box, Card, CardContent } from "@mui/material";
+import { Box, Card, CardContent, Link } from "@mui/material";
 import { RegisterPageViewProps } from "./types";
 import { RegisterForm } from "./components/RegisterForm";
 import { AvatarIcon } from "../../components/AvatarIcon";
 import { useLocale } from "../../contexts/Locale";
+import { Link as RouterLink } from "react-router-dom";
 
 type ComponentType = React.FC<RegisterPageViewProps>;
 export const RegisterPageView: ComponentType = (props) => {
@@ -28,6 +29,16 @@ export const RegisterPageView: ComponentType = (props) => {
             error={props.error}
           />
         </CardContent>
+        <Box sx={{ display: "flex", mt: 1 }}>
+          <Link
+            component={RouterLink}
+            to="/login"
+            underline="hover"
+            variant="body2"
+          >
+            Already have an account? Log In
+          </Link>
+        </Box>
       </Card>
     </Box>
   );
