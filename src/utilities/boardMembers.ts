@@ -30,7 +30,7 @@ export const boardMembers: BoardMember[] = [
   },
   {
     name: "Gaio Augusto",
-    picture: "/gaio.jpeg",
+    picture: "/aa.jpeg",
     major: "Computer Engineering",
     year: "4th",
     position: "digitalCoordinator",
