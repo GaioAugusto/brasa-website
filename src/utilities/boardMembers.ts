@@ -55,16 +55,15 @@ export const boardMembers: BoardMember[] = [
     city: "São Paulo, SP",
     linkedin: "https://www.linkedin.com/in/laura-ferreira-6a6962286/",
   },
-  // {
-  //   name: "Luiz Felipe Varela Molnar",
-  //   picture: "/eventsCoord2.jpeg",
-  //   major: "Chemistry",
-  //   year: "2nd",
-  //   position: "eventsCoordinator",
-  //   city: "Rio de Janeiro, RJ",
-  //   linkedin:
-  //     "https://www.linkedin.com/in/luiz-felipe-varela-molnar-ba187a333/",
-  // },
+  {
+    name: "Sabrina Dodge Terra",
+    picture: "/sabrinaDodge.jpeg",
+    major: "Life Sciences",
+    year: "2nd",
+    position: "eventsCoordinator",
+    city: "São Paulo, SP",
+    linkedin: "https://www.linkedin.com/in/sabrina-dodge-terra-26818030b/",
+  },
   {
     name: "Bruna Borer",
     picture: "/bruna.jpeg",
