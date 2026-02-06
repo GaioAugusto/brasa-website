@@ -1,7 +1,6 @@
 import { alpha, Avatar, Button, darken } from "@mui/material";
 import { AccountButtonProps } from "./types";
 import { useNavigate } from "react-router-dom";
-import { LoginButtonColors } from "../LoginButton/types";
 
 type ComponentType = React.FC<AccountButtonProps>;
 export const AccountButton: ComponentType = ({ ...props }) => {
@@ -19,10 +18,10 @@ export const AccountButton: ComponentType = ({ ...props }) => {
       sx={{
         display: "flex",
         alignItems: "center",
-        px: 2.5, // horizontal padding
-        py: 1, // vertical padding
+        px: 2.5,
+        py: 1,
         borderRadius: 2,
-        gap: 1, // space between label and avatar
+        gap: 1,
         fontWeight: 600,
         textTransform: "none",
         color: baseColor,
