@@ -1,5 +1,5 @@
 // VerifyPage.tsx (or VerifyAccount)
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { VerifyAccountProps } from "./types";
 import { VerifyAccountView } from "./view";
@@ -9,7 +9,7 @@ export const VerifyAccount: ComponentType = () => {
   const navigate = useNavigate();
   const token = useMemo(
     () => new URLSearchParams(window.location.search).get("token"),
-    []
+    [],
   );
   const [status, setStatus] = useState<string>("idle");
   const [msg, setMsg] = useState<string>("");

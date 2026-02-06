@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  Avatar,
   Box,
   Button,
   Card,
@@ -12,9 +11,8 @@ import {
   InputAdornment,
   Link,
   TextField,
-  Typography,
 } from "@mui/material";
-import { useNavigate, Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { ReactComponent as EyeOpen } from "../../assets/svg/eye-open-svgrepo-com.svg";
 import { ReactComponent as EyeClosed } from "../../assets/svg/eye-close-svgrepo-com.svg";
 import { LoginPageViewProps } from "./types";

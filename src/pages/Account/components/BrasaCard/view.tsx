@@ -1,7 +1,6 @@
 import { Avatar, Box, Card, Divider, Typography } from "@mui/material";
 import { BrasaCardViewProps } from "./types";
 import { useAuth } from "../../../../contexts/auth";
-import { AvatarIcon } from "../../../../components/AvatarIcon";
 
 type ComponentType = React.FC<BrasaCardViewProps>;
 export const BrasaCardView: ComponentType = ({ ...props }) => {
