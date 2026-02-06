@@ -1,8 +1,13 @@
 import { User } from "../types/user";
 
-export async function fetchUserInfo(email: string): Promise<User> {
+export async function fetchUserInfo(email: string, token: string): Promise<User> {
   const res = await fetch(
-    `/api/utilities/getUserInfo?email=${encodeURIComponent(email)}`
+    `/api/utilities/getUserInfo?email=${encodeURIComponent(email)}`,
+    {
+      headers: {
+        "Authorization": `Bearer ${token}`,
+      },
+    }
   );
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));

@@ -1,5 +1,6 @@
 import { findUser } from "../../services/googleSheetService.js";
 import bcrypt from "bcryptjs";
+import { generateToken } from "../../utils/jwt.js";
 
 export default async function handler(req, res) {
   try {
@@ -34,7 +35,26 @@ export default async function handler(req, res) {
       return res.status(401).json({ error: "Wrong password." });
     }
 
-    return res.status(200).json({ message: "Login successful." });
+    // Generate JWT token with user information
+    const token = generateToken({
+      email: user.email,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      studentId: user.studentId,
+    });
+
+    // Return token and user info
+    return res.status(200).json({
+      message: "Login successful.",
+      token,
+      user: {
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        studentId: user.studentId,
+        verified: user.verified,
+      },
+    });
   } catch (err) {
     console.error("LOGIN_ERROR", err);
     return res.status(500).json({ error: "Internal error." });
