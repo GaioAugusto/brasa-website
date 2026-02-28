@@ -1,20 +1,7 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { User } from "../../types/user";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { loginUser, registerUser } from "../../services/authService";
-
-interface AuthContextType {
-  user: User | null;
-  token: string | null;
-  register: (payload: {
-    email: string;
-    firstName: string;
-    lastName: string;
-    studentId: string;
-    password: string;
-  }) => Promise<void>;
-  login: (email: string, password: string) => Promise<void>;
-  logout: () => void;
-}
+import { User } from "../../types/user";
+import { AuthContextType } from "./types";
 
 const AuthContext = createContext<AuthContextType>(null!);
 
@@ -28,7 +15,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     // Restore user and token from localStorage on mount
     const savedUser = localStorage.getItem("brasa-user");
     const savedToken = localStorage.getItem("brasa-token");
-    
+
     if (savedUser && savedToken) {
       setUser(JSON.parse(savedUser));
       setToken(savedToken);
@@ -52,7 +39,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     // Store token and user data
     setToken(response.token);
     setUser(response.user);
-    
+
     localStorage.setItem("brasa-token", response.token);
     localStorage.setItem("brasa-user", JSON.stringify(response.user));
   };
