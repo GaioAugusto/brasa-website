@@ -1,10 +1,9 @@
+import React, { useState } from "react";
 import { useAuth } from "../../contexts/auth";
+import { useLocale } from "../../contexts/Locale";
+import { VerificationCodeModal } from "./components/VerificationCodeModal";
 import { RegisterPageProps } from "./types";
 import { RegisterPageView } from "./view";
-import { useState } from "react";
-import React from "react";
-import { Modal, Typography } from "antd";
-import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<RegisterPageProps>;
 export const RegisterPage: ComponentType = () => {
@@ -17,40 +16,8 @@ export const RegisterPage: ComponentType = () => {
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setError(null);
 
-    const data = new FormData(e.currentTarget);
-    const password = data.get("password") as string;
-    const email = data.get("email") as string;
-    const confirmPassword = data.get("confirmPassword") as string;
-
-    if (password !== confirmPassword) {
-      setError("Passwords do not match.");
-      setLoading(false);
-      return;
-    }
-
-    if (!email.endsWith("@mail.utoronto.ca")) {
-      setError("Please enter a UofT email.");
-      setLoading(false);
-      return;
-    }
-
-    try {
-      await register({
-        email: data.get("email") as string,
-        firstName: data.get("firstName") as string,
-        lastName: data.get("lastName") as string,
-        studentId: data.get("studentId") as string,
-        password,
-      });
-    } catch (err: any) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-      setIsModalOpen(true);
-    }
+    setIsModalOpen(true);
   };
 
   return (
@@ -60,17 +27,7 @@ export const RegisterPage: ComponentType = () => {
         handleSubmit={handleSubmit}
         error={error}
       />
-      <Modal
-        title={commonLocale.get("emailVerification")}
-        closable
-        open={isModalOpen}
-        onCancel={() => setIsModalOpen(false)}
-        footer={null}
-      >
-        <Typography>
-          {templatesLocale.get("emailVerificationDescription")}
-        </Typography>
-      </Modal>
+      <VerificationCodeModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
     </React.Fragment>
   );
 };
