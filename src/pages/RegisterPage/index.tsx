@@ -1,10 +1,9 @@
+import React, { useState } from "react";
 import { useAuth } from "../../contexts/auth";
+import { useLocale } from "../../contexts/Locale";
+import { VerificationCodeModal } from "./components/VerificationCodeModal";
 import { RegisterPageProps } from "./types";
 import { RegisterPageView } from "./view";
-import { useState } from "react";
-import React from "react";
-import { Modal, Typography } from "antd";
-import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<RegisterPageProps>;
 export const RegisterPage: ComponentType = () => {
@@ -22,7 +21,7 @@ export const RegisterPage: ComponentType = () => {
 
     const data = new FormData(e.currentTarget);
     const password = data.get("password") as string;
-    const email = data.get("email") as string;
+    const email = (data.get("email") as string).toLowerCase().trim();
     const confirmPassword = data.get("confirmPassword") as string;
 
     if (password !== confirmPassword) {
@@ -39,17 +38,18 @@ export const RegisterPage: ComponentType = () => {
 
     try {
       await register({
-        email: data.get("email") as string,
+        email,
         firstName: data.get("firstName") as string,
         lastName: data.get("lastName") as string,
         studentId: data.get("studentId") as string,
         password,
       });
+
+      setIsModalOpen(true);
     } catch (err: any) {
       setError(err.message);
     } finally {
       setLoading(false);
-      setIsModalOpen(true);
     }
   };
 
@@ -60,17 +60,7 @@ export const RegisterPage: ComponentType = () => {
         handleSubmit={handleSubmit}
         error={error}
       />
-      <Modal
-        title={commonLocale.get("emailVerification")}
-        closable
-        open={isModalOpen}
-        onCancel={() => setIsModalOpen(false)}
-        footer={null}
-      >
-        <Typography>
-          {templatesLocale.get("emailVerificationDescription")}
-        </Typography>
-      </Modal>
+      <VerificationCodeModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
     </React.Fragment>
   );
 };
