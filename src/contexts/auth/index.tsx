@@ -1,5 +1,12 @@
+import {
+  fetchAuthSession,
+  getCurrentUser,
+  signIn,
+  signOut,
+  signUp,
+} from "aws-amplify/auth";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { loginUser, registerUser } from "../../services/authService";
+import { RegisterPayload } from "../../services/authService";
 import { User } from "../../types/user";
 import { AuthContextType } from "./types";
 
@@ -22,33 +29,47 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   }, []);
 
-  const register = async (payload: {
-    email: string;
-    firstName: string;
-    lastName: string;
-    studentId: string;
-    password: string;
-  }) => {
-    await registerUser(payload);
+  const register = async (payload: RegisterPayload) => {
+    await signUp({
+      username: payload.email,
+      password: payload.password,
+      options: {
+        userAttributes: {
+          email: payload.email,
+          given_name: payload.firstName,
+          family_name: payload.lastName,
+          "custom:studentId": payload.studentId, // if you create custom attribute
+        },
+      },
+    });
   };
 
   const login = async (email: string, password: string) => {
-    // Login and receive JWT token
-    const response = await loginUser({ email, password });
+    await signIn({
+      username: email,
+      password,
+    });
 
-    // Store token and user data
-    setToken(response.token);
-    setUser(response.user);
+    const session = await fetchAuthSession();
+    const token = session.tokens?.accessToken?.toString();
 
-    localStorage.setItem("brasa-token", response.token);
-    localStorage.setItem("brasa-user", JSON.stringify(response.user));
+    if (!token) throw new Error("No token returned");
+
+    const cognitoUser = await getCurrentUser();
+
+    setToken(token);
+    setUser({
+      email: cognitoUser.signInDetails?.loginId ?? email,
+    } as any);
+
+    localStorage.setItem("brasa-token", token);
   };
 
-  const logout = () => {
+  const logout = async () => {
+    await signOut();
     setUser(null);
     setToken(null);
-    localStorage.removeItem("brasa-user");
-    localStorage.removeItem("brasa-token");
+    localStorage.clear();
   };
 
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import { ContactViewProps } from "./types";
 import { useLocale } from "../../contexts/Locale";
+import { ContactViewProps } from "./types";
 
 type ComponentType = React.FC<ContactViewProps>;
 
