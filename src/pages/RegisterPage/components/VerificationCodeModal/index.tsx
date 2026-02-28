@@ -1,6 +1,8 @@
 import CloseIcon from "@mui/icons-material/Close";
 import { IconButton, Modal, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../../contexts/auth";
 import { useLocale } from "../../../../contexts/Locale";
 import {
   DescriptionTypography,
@@ -20,11 +22,29 @@ export interface VerificationCodeProps {
 
 type ComponentType = React.FC<VerificationCodeProps>;
 export const VerificationCodeModal: ComponentType = (props) => {
+  const { confirmPendingEmail } = useAuth();
   const { commonLocale, templatesLocale } = useLocale();
+  const navigate = useNavigate();
   const [code, setCode] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleClose = () => {
     props.setIsOpen(false);
+  };
+
+  const onVerify = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      await confirmPendingEmail(code);
+      props.setIsOpen(false);
+      navigate("/login");
+    } catch (e: any) {
+      setError(e.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -55,15 +75,15 @@ export const VerificationCodeModal: ComponentType = (props) => {
           variant="outlined"
           value={code}
           onChange={(e) => setCode(e.target.value)}
-          inputProps={{ maxLength: 6 }}
+          error={Boolean(error)}
+          helperText={error ?? " "}
         />
 
         <StyledButton
-          fullWidth
-          variant="contained"
-          disabled={code.length === 0}
+          disabled={code.length === 0 || loading}
+          onClick={onVerify}
         >
-          Verify
+          {loading ? "Verifying..." : "Verify"}
         </StyledButton>
       </VerificationCodeBoxWrapper>
     </Modal>
