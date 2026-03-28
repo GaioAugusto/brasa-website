@@ -1,6 +1,7 @@
 export interface User {
-  readonly email: string;
-  readonly firstName: string;
-  readonly lastName: string;
-  readonly studentId: string;
+    readonly id: string;
+    readonly email: string;
+    readonly firstName: string;
+    readonly lastName: string;
+    readonly studentId: string;
 }
