@@ -18,6 +18,7 @@ export const RegisterPage: ComponentType = () => {
     e.preventDefault();
     setLoading(true);
     setError(null);
+    let shouldOpenModal = false;
 
     const data = new FormData(e.currentTarget);
     const password = data.get("password") as string;
@@ -44,12 +45,22 @@ export const RegisterPage: ComponentType = () => {
         studentId: data.get("studentId") as string,
         password,
       });
-
-      setIsModalOpen(true);
+      shouldOpenModal = true;
     } catch (err: any) {
-      setError(err.message);
+      if (
+        err?.code === "UNCONFIRMED_USER" ||
+        err?.code === "UNCONFIRMED_USER_RATE_LIMIT"
+      ) {
+        shouldOpenModal = true;
+      }
+      setError(err?.message || "Could not create account.");
     } finally {
       setLoading(false);
+    }
+
+    if (shouldOpenModal) {
+      console.log("HERE");
+      setIsModalOpen(true);
     }
   };
 

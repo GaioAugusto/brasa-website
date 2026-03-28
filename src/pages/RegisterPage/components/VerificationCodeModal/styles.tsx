@@ -56,14 +56,41 @@ export const StyledTextField = styled(TextField)`
   }
 `;
 
-export const StyledButton = styled(Button)`
+export const ActionButtonsBox = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+export const VerifyButton = styled(Button)`
   && {
+    width: 100%;
     background-color: #2e7d32;
+    color: #fff;
     &:hover {
       background-color: #1b5e20;
     }
     &:disabled {
       background-color: rgba(46, 125, 50, 0.3);
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+`;
+
+export const ResendButton = styled(Button)`
+  && {
+    width: 100%;
+    color: #2e7d32;
+    border-color: #2e7d32;
+    background-color: #fff;
+    &:hover {
+      border-color: #1b5e20;
+      color: #1b5e20;
+      background-color: rgba(46, 125, 50, 0.05);
+    }
+    &:disabled {
+      border-color: rgba(46, 125, 50, 0.3);
+      color: rgba(46, 125, 50, 0.5);
     }
   }
 `;

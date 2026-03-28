@@ -3,7 +3,7 @@ import { User } from "../../types/user";
 export interface AuthContextType {
   user: User | null;
   pendingEmail: string | null;
-  token: string | null;
+  idToken: string | null;
   register: (payload: {
     email: string;
     firstName: string;
@@ -15,6 +15,6 @@ export interface AuthContextType {
   logout: () => Promise<void>;
   confirmPendingEmail: (code: string) => Promise<void>;
   resendCode(email: string): Promise<void>;
-  getAccessToken: () => Promise<string>;
+  getIdToken: () => Promise<string>;
   authedFetch: (url: string, init?: RequestInit) => Promise<Response>;
 }
