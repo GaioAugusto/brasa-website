@@ -6,7 +6,10 @@ export interface ContactFormData {
     message: string;
 }
 
-const baseUrl = process.env.REACT_APP_USERS_API_BASE_URL ?? "";
+const baseUrl =
+    import.meta.env.VITE_USERS_API_BASE_URL ??
+    import.meta.env.REACT_APP_USERS_API_BASE_URL ??
+    "";
 export const contactFormRequest = async (formData: ContactFormData) => {
     try {
         const response = await fetch(`${baseUrl}/contact`, {

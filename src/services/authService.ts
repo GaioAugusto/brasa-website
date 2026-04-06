@@ -30,7 +30,8 @@ export interface LoginResponse {
 }
 
 const externalUsersApiBaseUrl =
-    process.env.REACT_APP_USERS_API_BASE_URL ||
+    import.meta.env.VITE_USERS_API_BASE_URL ||
+    import.meta.env.REACT_APP_USERS_API_BASE_URL ||
     "https://kd1muhiyb9.execute-api.us-east-2.amazonaws.com";
 
 const externalRegisterPath = "/users/register";
