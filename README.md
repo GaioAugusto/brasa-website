@@ -11,6 +11,7 @@ It is a React + TypeScript single-page application (SPA) with:
 ## Tech stack
 
 - React 18 + TypeScript
+- Vite
 - React Router
 - AWS Amplify (Auth)
 - Tailwind CSS, Material UI, Ant Design, styled-components
@@ -62,7 +63,7 @@ Current frontend API usage includes:
 - `POST /users/register`
 - `POST /contact`
 
-The backend base URL is configured with `REACT_APP_USERS_API_BASE_URL`.
+The backend base URL is configured with environment variables.
 
 ## AWS integration summary
 
@@ -84,7 +85,7 @@ The frontend sends Cognito bearer tokens to protected endpoints. The API is resp
 Recommended hosting model for this SPA:
 
 1. Build static assets with `npm run build`
-2. Upload `build/` artifacts to an S3 bucket
+2. Upload `dist/` artifacts to an S3 bucket
 3. Serve through CloudFront distribution
 4. Configure SPA fallback (rewrite/redirect to `index.html`) for client-side routes
 
@@ -99,14 +100,15 @@ Typical production behavior:
 Create a `.env` file at the project root:
 
 ```env
-REACT_APP_AWS_COGNITO_USER_POOL_ID=your_user_pool_id
-REACT_APP_AWS_COGNITO_CLIENT_ID=your_cognito_app_client_id
-REACT_APP_USERS_API_BASE_URL=https://your-api-id.execute-api.region.amazonaws.com
+VITE_AWS_COGNITO_USER_POOL_ID=your_user_pool_id
+VITE_AWS_COGNITO_CLIENT_ID=your_cognito_app_client_id
+VITE_USERS_API_BASE_URL=https://your-api-id.execute-api.region.amazonaws.com
 ```
 
 Notes:
 
-- Variables must start with `REACT_APP_` to be available in the CRA app.
+- Preferred prefix is `VITE_`.
+- `REACT_APP_` variables are still accepted for backward compatibility.
 - Do not commit secrets.
 
 ## Getting started
@@ -128,12 +130,14 @@ npm install
 npm start
 ```
 
-App runs at `http://localhost:3000`.
+App runs at `http://localhost:5173` by default.
 
 ## Scripts
 
 - `npm start`: run development server
+- `npm run dev`: run development server
 - `npm run build`: create production build
+- `npm run preview`: preview production build locally
 - `npm test`: run tests
 
 ## Deployment checklist
