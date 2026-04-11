@@ -11,7 +11,7 @@ export const soccerCaptain: TeamCaptain = {
 export const volleyballCaptain: TeamCaptain = {
     name: "Paulo Maia",
     phone: "+55 86 8802-7909",
-    email: "paulo.cortellazzi@mail.utoronto.ca", // change this to paulao email
+    email: "paulo.cortellazzi@mail.utoronto.ca",
     instagram: "https://www.instagram.com/paulomaiacortellazzi/",
     image: "/opportunities/students/volleyballCaptain.jpeg",
     instagramUser: "@paulomaiacortellazzi",
