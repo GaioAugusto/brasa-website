@@ -4,15 +4,27 @@ import { NavBarView } from "./view";
 
 type ComponentType = React.FC<NavBarProps>;
 export const NavBar: ComponentType = () => {
-  const { commonLocale } = useLocale();
+    const { commonLocale } = useLocale();
 
-  const NavBarItems: NavBarItem[] = [
-    { name: commonLocale.get("home"), href: "/" },
-    { name: commonLocale.get("board"), href: "/board" },
-    { name: commonLocale.get("join"), href: "/#join" },
-    { name: commonLocale.get("opportunities"), href: "/opportunities" },
-    { name: commonLocale.get("pastEvents"), href: "/events" },
-    { name: commonLocale.get("contact"), href: "/contact" },
-  ];
-  return <NavBarView NavBarItems={NavBarItems} />;
+    const NavBarItems: NavBarItem[] = [
+        { name: commonLocale.get("home"), href: "/" },
+        { name: commonLocale.get("board"), href: "/board" },
+        { name: commonLocale.get("join"), href: "/#join" },
+        {
+            name: commonLocale.get("opportunities"),
+            children: [
+                {
+                    name: commonLocale.get("forStudents"),
+                    href: "/opportunities",
+                },
+                {
+                    name: commonLocale.get("forBusinesses"),
+                    href: "/opportunities/businesses",
+                },
+            ],
+        },
+        { name: commonLocale.get("pastEvents"), href: "/events" },
+        { name: commonLocale.get("contact"), href: "/contact" },
+    ];
+    return <NavBarView NavBarItems={NavBarItems} />;
 };
