@@ -4,6 +4,7 @@ import { NavBar } from "./components/NavBar";
 import { AuthProvider } from "./contexts/auth";
 import { AccountMenu } from "./pages/Account";
 import { Board } from "./pages/Board";
+import { BusinessesPage } from "./pages/Businesses";
 import { Contact } from "./pages/Contact";
 import { Home } from "./pages/Home";
 import { LoginPage } from "./pages/LoginPage";
@@ -24,6 +25,10 @@ function App() {
                         <Route
                             path="/opportunities"
                             element={<Opportunities />}
+                        />
+                        <Route
+                            path="/opportunities/businesses"
+                            element={<BusinessesPage />}
                         />
                         <Route path="/events" element={<PastEvents />} />
                         <Route path="/login" element={<LoginPage />} />
