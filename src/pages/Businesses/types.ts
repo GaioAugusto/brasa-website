@@ -1,2 +1,4 @@
 export interface BusinessesPageProps {}
-export interface BusinessesPageViewProps {}
+export interface BusinessesPageViewProps {
+    readonly handleDownload: () => void;
+}

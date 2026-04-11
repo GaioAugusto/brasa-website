@@ -15,7 +15,7 @@ const images = [
 
 type ComponentType = React.FC<BusinessesPageViewProps>;
 
-export const BusinessesPageView: ComponentType = () => {
+export const BusinessesPageView: ComponentType = (props) => {
     const { commonLocale, templatesLocale } = useLocale();
     const highlights = [
         {
@@ -77,16 +77,14 @@ export const BusinessesPageView: ComponentType = () => {
                             </S.Paragraph>
 
                             <S.DownloadArea>
-                                <S.DownloadButton type="button">
+                                <S.DownloadButton
+                                    type="button"
+                                    onClick={props.handleDownload}
+                                >
                                     {templatesLocale.get(
                                         "partnershipPackageCta",
                                     )}
                                 </S.DownloadButton>
-                                <S.DownloadHint>
-                                    {templatesLocale.get(
-                                        "partnershipPackageHint",
-                                    )}
-                                </S.DownloadHint>
                             </S.DownloadArea>
                         </S.StoryBody>
 
