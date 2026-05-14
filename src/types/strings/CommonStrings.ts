@@ -22,6 +22,9 @@ export interface CommonStrings {
     socialRepresentative: string;
     utscRep: string;
     utmRep: string;
+    secondYear: string;
+    thirdYear: string;
+    fourthYear: string;
     becomeMember: string;
     generalInquiries: string;
     firstName: string;
