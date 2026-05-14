@@ -18,7 +18,7 @@ export interface CommonStrings {
     communication: string;
     designer: string;
     digitalCoordinator: string;
-    alumniOutreach: string;
+    outreach: string;
     socialRepresentative: string;
     utscRep: string;
     utmRep: string;
