@@ -30,6 +30,9 @@
         "emailAddress": "Endereço de Email",
         "subject": "Assunto",
         "message": "Mensagem",
+        "required": "obrigatório",
+        "submit": "Enviar",
+        "submitting": "Enviando...",
         "opportunities": "Oportunidades",
         "forStudents": "Para estudantes",
         "forBusinesses": "Para empresas",
@@ -46,7 +49,9 @@
         "studyWithUs": "Estude com a gente",
         "signUp": "Criar conta",
         "emailVerification": "Verificação no email necessária",
-        "createAccount": "Criar conta"
+        "createAccount": "Criar conta",
+        "myBrasaCard": "Meu BRASA Card",
+        "settings": "Configurações"
     },
     "templates": {
         "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!",
@@ -55,6 +60,8 @@
         "subtitleDescription": "Guiando e apoiando estudantes brasileiros no Canadá",
         "becomeMemberDescription": "Junte-se à BRASA UofT nos seguindo no Instagram e nos mande uma mensagem pra entrar no grupo do WhatsApp! Você terá a oportunidade de participar em muitos eventos divertidos, e fazer a diferença no campus. Com oportunidades de networking e liderança, estamos aqui para te ajudar a ser bem sucedido nessa jornada.",
         "generalInquiresDescription": "Quer conectar com a gente? Preencha o formulário abaixo e nós entraremos em contato em até 24 horas.",
+        "contactSuccessMessage": "Sua mensagem foi enviada com sucesso!",
+        "contactErrorMessage": "Ocorreu um erro. Por favor tente novamente.",
         "getMoreInvolved": "Envolva-se ainda mais!",
         "partnerUp": "Faça uma parceria conosco!",
         "businessStoryTitle": "Construindo parcerias relevantes ao longo dos anos",
@@ -82,6 +89,11 @@
         "hockeyDescription": "Venha assistir ao Varsity Team de hóquei da UofT com a gente!",
         "danceClassDescription": "Tivemos uma aula de dança brasileira, onde pudemos nos conectar com nossa cultura e aprender novos estilos!",
         "studyWithUsDescription": "Época de finals é sempre estressante, mas estudar com amigos é um ótimo jeito de relaxar e ser produtivo ao mesmo tempo!",
-        "emailVerificationDescription": "Um email de verificação será enviado pra você dentro dos próximos 5 minutos. Clique no link para autenticar seu email!"
+        "emailVerificationDescription": "Um email de verificação será enviado pra você dentro dos próximos 5 minutos. Clique no link para autenticar seu email!",
+        "brasaCardDisclaimerPrefix": "O BRASA Card ",
+        "brasaCardDisclaimerBold": "não é um documento de identidade oficial",
+        "brasaCardDisclaimerSuffix": " Ele só deve ser usado para atividades relacionadas à BRASA e não para identificação ou fins legais.",
+        "pleaseLogin": "Por favor faça login para ver o seu BRASA Card.",
+        "settingsComingSoon": "Configurações em breve!"
     }
 }

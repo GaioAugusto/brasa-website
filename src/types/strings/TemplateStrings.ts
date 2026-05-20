@@ -5,6 +5,8 @@ export interface TemplateStrings {
     subtitleDescription: string;
     becomeMemberDescription: string;
     generalInquiresDescription: string;
+    contactSuccessMessage:string;
+    contactErrorMessage: string;
     getMoreInvolved: string;
     partnerUp: string;
     businessStoryTitle: string;
@@ -33,4 +35,9 @@ export interface TemplateStrings {
     danceClassDescription: string;
     studyWithUsDescription: string;
     emailVerificationDescription: string;
+    brasaCardDisclaimerPrefix: string;
+    brasaCardDisclaimerBold: string;
+    brasaCardDisclaimerSuffix: string;
+    pleaseLogin: string;
+    settingsComingSoon: string;
 }
