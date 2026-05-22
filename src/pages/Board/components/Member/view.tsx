@@ -21,7 +21,7 @@ export const MemberView: ComponentType = ({ boardMember }) => {
       </p>
       <p className="text-gray-700 text-center">
         <span className="block font-semibold">{boardMember.major}</span>
-        {boardMember.year && <span>{boardMember.year} Year</span>}
+        <span className="block font">{commonLocale.get(boardMember.year)}</span>
         <span className="block text-gray-500">{boardMember.city}</span>
       </p>
       {boardMember.linkedin && (
