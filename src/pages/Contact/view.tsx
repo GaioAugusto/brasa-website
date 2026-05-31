@@ -31,7 +31,7 @@ export const ContactView: ComponentType = ({
                                 className="block text-sm font-medium text-gray-700"
                             >
                                 {commonLocale.get("firstName")}{" "}
-                                <span className="text-red-500">(required)</span>
+                                <span className="text-red-500">({commonLocale.get("required")})</span>
                             </label>
                             <input
                                 type="text"
@@ -68,7 +68,7 @@ export const ContactView: ComponentType = ({
                             className="block text-sm font-medium text-gray-700"
                         >
                             {commonLocale.get("emailAddress")}{" "}
-                            <span className="text-red-500">(required)</span>
+                            <span className="text-red-500">({commonLocale.get("required")})</span>
                         </label>
                         <input
                             type="email"
@@ -87,8 +87,8 @@ export const ContactView: ComponentType = ({
                             htmlFor="subject"
                             className="block text-sm font-medium text-gray-700"
                         >
-                            {commonLocale.get("subject")}
-                            <span className="text-red-500">(required)</span>
+                            {commonLocale.get("subject")}{" "}
+                            <span className="text-red-500">({commonLocale.get("required")})</span>
                         </label>
                         <input
                             type="text"
@@ -108,7 +108,7 @@ export const ContactView: ComponentType = ({
                             className="block text-sm font-medium text-gray-700"
                         >
                             {commonLocale.get("message")}{" "}
-                            <span className="text-red-500">(required)</span>
+                            <span className="text-red-500">({commonLocale.get("required")})</span>
                         </label>
                         <textarea
                             id="message"
@@ -132,7 +132,7 @@ export const ContactView: ComponentType = ({
                                     : "bg-green-600 hover:bg-green-700"
                             } text-white px-6 py-3 rounded-md font-semibold shadow-md`}
                         >
-                            {isSubmitting ? "Submitting..." : "Submit"}
+                            {isSubmitting ? commonLocale.get("submitting") : commonLocale.get("submit")}
                         </button>
                     </div>
 

@@ -11,9 +11,11 @@ import {
 import { AccountMenuViewProps } from "./types";
 import { BrasaCard } from "./components/BrasaCard";
 import React from "react";
+import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<AccountMenuViewProps>;
 export const AccountMenuView: ComponentType = (props) => {
+  const { commonLocale, templatesLocale } = useLocale();
   return (
     <Box sx={{ display: "flex", minHeight: "calc(100vh - 4rem)" }}>
       {/* Sidebar */}
@@ -31,7 +33,7 @@ export const AccountMenuView: ComponentType = (props) => {
             selected={props.active === "card"}
             onClick={() => props.setActive("card")}
           >
-            <ListItemText primary="My BRASA Card" />
+            <ListItemText primary={commonLocale.get("myBrasaCard")} />
           </ListItemButton>
 
           {/* future items */}
@@ -39,7 +41,7 @@ export const AccountMenuView: ComponentType = (props) => {
             selected={props.active === "settings"}
             onClick={() => props.setActive("settings")}
           >
-            <ListItemText primary="Settings" />
+            <ListItemText primary={commonLocale.get("settings")} />
           </ListItemButton>
         </List>
 
@@ -71,9 +73,8 @@ export const AccountMenuView: ComponentType = (props) => {
             }}
           >
             <Typography variant="body2" color="text.primary">
-              ⚠️ The BRASA Card is <strong>not an official piece of ID</strong>.
-              It should only be used for activities related to the BRASA club
-              and not for identification or legal purposes.
+              ⚠️ {templatesLocale.get("brasaCardDisclaimerPrefix")} <strong>{templatesLocale.get("brasaCardDisclaimerBold")}</strong>.
+              {templatesLocale.get("brasaCardDisclaimerSuffix")}
             </Typography>
           </Card>
 
@@ -84,9 +85,9 @@ export const AccountMenuView: ComponentType = (props) => {
               email={props.user.email}
             />
           ) : props.active === "card" ? (
-            <Typography>Please log in to see your card.</Typography>
+            <Typography>{templatesLocale.get("pleaseLogin")}</Typography>
           ) : (
-            <Typography>Settings coming soon!</Typography>
+            <Typography>{templatesLocale.get("settingsComingSoon")}</Typography>
           )}
         </Box>
       </React.Fragment>

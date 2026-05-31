@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useLocale } from "../../contexts/Locale";
 import { contactFormRequest } from "../../services/contactService";
 import { ContactProps } from "./types";
 import { ContactView } from "./view";
 
 type ComponentType = React.FC<ContactProps>;
 export const Contact: ComponentType = () => {
+    const { templatesLocale } = useLocale();
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -37,9 +39,9 @@ export const Contact: ComponentType = () => {
                 subject: "",
                 message: "",
             });
-            setSuccessMessage("Your message has been sent successfully!");
+            setSuccessMessage(templatesLocale.get("contactSuccessMessage"));
         } else {
-            setSuccessMessage("An error occurred. Please try again.");
+            setSuccessMessage(templatesLocale.get("contactErrorMessage"));
         }
         setIsSubmitting(false);
     };

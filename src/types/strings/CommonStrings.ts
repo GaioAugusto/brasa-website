@@ -32,6 +32,9 @@ export interface CommonStrings {
     emailAddress: string;
     subject: string;
     message: string;
+    required: string;
+    submit: string;
+    submitting: string;
     opportunities: string;
     forStudents: string;
     forBusinesses: string;
@@ -49,4 +52,6 @@ export interface CommonStrings {
     signUp: string;
     emailVerification: string;
     createAccount: string;
+    myBrasaCard: string;
+    settings: string;
 }
