@@ -48,4 +48,5 @@ export interface TemplateStrings {
     brasaCardDisclaimerSuffix: string;
     pleaseLogin: string;
     settingsComingSoon: string;
+    allRightsReserved: string;
 }

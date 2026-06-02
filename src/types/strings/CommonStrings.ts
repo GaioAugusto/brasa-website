@@ -68,4 +68,6 @@ export interface CommonStrings {
     exampleMail: string;
     validUntil: string;
     expiryDate: string;
+    myAccount: string;
+    close: string;
 }

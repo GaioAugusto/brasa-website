@@ -39,7 +39,7 @@ export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
       <Card sx={{ width: 360, px: 3, py: 4, boxShadow: 4 }}>
         <CardContent sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
           <Box sx={{ textAlign: "center" }}>
-            <AvatarIcon title="Login" />
+            <AvatarIcon title={commonLocale.get("login")} />
           </Box>
 
           <Box component="form" onSubmit={handleSubmit} sx={{ gap: 2 }}>

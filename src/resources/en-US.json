@@ -68,7 +68,9 @@
         "logout": "Logout",
         "exampleMail": "example@mail.utoronto.ca",
         "validUntil": "Valid until",
-        "expiryDate": "May 2027"
+        "expiryDate": "May 2027",
+        "myAccount": "My Account",
+        "close": "Close"
     },
     "templates": {
         "welcomeDescription": "Be welcome to BRASA's UOFT official website",
@@ -119,6 +121,7 @@
         "brasaCardDisclaimerBold": "not an official piece of ID",
         "brasaCardDisclaimerSuffix": " It should only be used for activities related to the BRASA club and not for identification or legal purposes.",
         "pleaseLogin": "Please log in to see your BRASA Card.",
-        "settingsComingSoon": "Settings coming soon!"
+        "settingsComingSoon": "Settings coming soon!",
+        "allRightsReserved": "BRASA at UofT. All rights reserved."
     }
 }

@@ -1,6 +1,7 @@
 import { alpha, Avatar, Button, darken } from "@mui/material";
 import { AccountButtonProps } from "./types";
 import { useNavigate } from "react-router-dom";
+import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<AccountButtonProps>;
 export const AccountButton: ComponentType = ({ ...props }) => {
@@ -9,6 +10,7 @@ export const AccountButton: ComponentType = ({ ...props }) => {
   const hoverBg =
     props.mode === "dark" ? alpha("#ffffff", 0.08) : alpha("#a5d6a7", 0.4);
   const hoverBorder = props.mode === "dark" ? "#ccc" : darken("#2e7d32", 0.2);
+  const { commonLocale } = useLocale();
 
   return (
     <Button
@@ -33,7 +35,7 @@ export const AccountButton: ComponentType = ({ ...props }) => {
         },
       }}
     >
-      My Account
+      {commonLocale.get("myAccount")}
     </Button>
   );
 };
