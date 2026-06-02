@@ -16,6 +16,7 @@ import {
   VerificationCodeBoxWrapper,
   VerifyButton,
 } from "./styles";
+import { common } from "@mui/material/colors";
 
 const RESEND_CODE_COOLDOWN_SECONDS = 30;
 
@@ -83,9 +84,9 @@ export const VerificationCodeModal: ComponentType = (props) => {
     try {
       await resendCode(pendingEmail);
       setResendCountdown(RESEND_CODE_COOLDOWN_SECONDS);
-      setInfo("A new verification code has been sent.");
+      setInfo(templatesLocale.get("resentVerificationEmail"));
     } catch (e: any) {
-      setError(e?.message || "Could not resend verification code.");
+      setError(e?.message || templatesLocale.get("verificationEmailResendFailed"));
     } finally {
       setResendLoading(false);
     }
@@ -115,7 +116,7 @@ export const VerificationCodeModal: ComponentType = (props) => {
 
         <StyledTextField
           fullWidth
-          label="Verification Code"
+          label={commonLocale.get("verificationCode")}
           variant="outlined"
           value={code}
           onChange={(e) => setCode(e.target.value)}
@@ -128,7 +129,7 @@ export const VerificationCodeModal: ComponentType = (props) => {
             disabled={code.length === 0 || loading}
             onClick={onVerify}
           >
-            {loading ? "Verifying..." : "Verify"}
+            {loading ? commonLocale.get("verifying") : commonLocale.get("verify")}
           </VerifyButton>
 
           <ResendButton
@@ -137,10 +138,10 @@ export const VerificationCodeModal: ComponentType = (props) => {
             variant="outlined"
           >
             {resendLoading
-              ? "Resending..."
+              ? commonLocale.get("resending")
               : resendCountdown > 0
-                ? `Resend code in ${resendCountdown}s`
-                : "Resend code"}
+                ? `${commonLocale.get("resendCodeIn")} ${resendCountdown}s`
+                : commonLocale.get("resendCode")}
           </ResendButton>
         </ActionButtonsBox>
 

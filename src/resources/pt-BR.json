@@ -57,8 +57,18 @@
         "confirmPassword": "Confirmar senha",
         "login": "Entrar",
         "emailVerification": "Verificação no email necessária",
+        "verificationCode": "Código de verificação",
+        "verifying": "Verificando...",
+        "verify": "Verificar",
+        "resending": "Reenviando...",
+        "resendCode": "Reenviar código",
+        "resendCodeIn": "Reenviar código em",
         "myBrasaCard": "Meu BRASA Card",
-        "settings": "Configurações"
+        "settings": "Configurações",
+        "logout": "Sair",
+        "exampleMail": "exemplo@mail.utoronto.ca",
+        "validUntil": "Válido até",
+        "expiryDate": "Maio 2027" 
     },
     "templates": {
         "welcomeDescription": "Seja bem-vindo ao site oficial da BRASA UofT!",
@@ -103,6 +113,8 @@
         "couldNotCreateAccount": "Não foi possível criar a conta.",
         "alreadyHaveAnAccont": "Já tem uma conta? ",
         "emailVerificationDescription": "Um email de verificação será enviado pra você dentro dos próximos 5 minutos. Clique no link para autenticar seu email!",
+        "resentVerificationEmail": "Um novo código de verificação foi mandado para o seu email.",
+        "verificationEmailResendFailed": "Não foi possível reenviar o código de verificação.",
         "brasaCardDisclaimerPrefix": "O BRASA Card ",
         "brasaCardDisclaimerBold": "não é um documento de identidade oficial",
         "brasaCardDisclaimerSuffix": " Ele só deve ser usado para atividades relacionadas à BRASA e não para identificação ou fins legais.",

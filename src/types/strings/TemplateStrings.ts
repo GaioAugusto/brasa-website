@@ -41,6 +41,8 @@ export interface TemplateStrings {
     couldNotCreateAccount: string;
     alreadyHaveAnAccont:string;
     emailVerificationDescription: string;
+    resentVerificationEmail: string;
+    verificationEmailResendFailed: string;
     brasaCardDisclaimerPrefix: string;
     brasaCardDisclaimerBold: string;
     brasaCardDisclaimerSuffix: string;

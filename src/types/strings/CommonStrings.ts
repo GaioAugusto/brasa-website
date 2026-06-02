@@ -56,6 +56,16 @@ export interface CommonStrings {
     confirmPassword: string;
     login: string;
     emailVerification: string;
+    verificationCode: string;
+    verifying: string;
+    verify: string;
+    resending: string;
+    resendCode: string;
+    resendCodeIn: string;
     myBrasaCard: string;
     settings: string;
+    logout: string;
+    exampleMail: string;
+    validUntil: string;
+    expiryDate: string;
 }

@@ -57,8 +57,18 @@
         "confirmPassword": "Confirm password",
         "login": "Login",
         "emailVerification": "Email verification Required",
+        "verificationCode": "Verification code",
+        "verifying": "Verifying...",
+        "verify": "Verify",
+        "resending": "Resending...",
+        "resendCode": "Resend code",
+        "resendCodeIn": "Resend code in",
         "myBrasaCard": "My BRASA Card",
-        "settings": "Settings"
+        "settings": "Settings",
+        "logout": "Logout",
+        "exampleMail": "example@mail.utoronto.ca",
+        "validUntil": "Valid until",
+        "expiryDate": "May 2027"
     },
     "templates": {
         "welcomeDescription": "Be welcome to BRASA's UOFT official website",
@@ -103,6 +113,8 @@
         "couldNotCreateAccount": "Could not create account.",
         "alreadyHaveAnAccont": "Already have an account? ",
         "emailVerificationDescription": "A verification email will be sent to you in the next 5 minutes. Please enter the verification code that was sent to verify your account!",
+        "resentVerificationEmail": "A new verification code has been sent to your email.",
+        "verificationEmailResendFailed": "Could not resend verification code.",
         "brasaCardDisclaimerPrefix": "The BRASA Card is ",
         "brasaCardDisclaimerBold": "not an official piece of ID",
         "brasaCardDisclaimerSuffix": " It should only be used for activities related to the BRASA club and not for identification or legal purposes.",

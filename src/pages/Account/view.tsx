@@ -54,7 +54,7 @@ export const AccountMenuView: ComponentType = (props) => {
             fullWidth
             onClick={props.handleLogout}
           >
-            Logout
+            {commonLocale.get("logout")}
           </Button>
         </Box>
       </Box>
