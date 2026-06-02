@@ -34,6 +34,12 @@ export interface TemplateStrings {
     hockeyDescription: string;
     danceClassDescription: string;
     studyWithUsDescription: string;
+    dontHaveAnAccount: string;
+    pleaseFillInDetails: string;
+    passwordsDoNotMatch: string;
+    pleaseEnterUoftEmail: string;
+    couldNotCreateAccount: string;
+    alreadyHaveAnAccont:string;
     emailVerificationDescription: string;
     brasaCardDisclaimerPrefix: string;
     brasaCardDisclaimerBold: string;

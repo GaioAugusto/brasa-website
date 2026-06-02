@@ -1,4 +1,6 @@
 import React from "react";
+import { useLocale } from "../../contexts/Locale";
+
 import {
   Box,
   Button,
@@ -20,6 +22,8 @@ import { AvatarIcon } from "../../components/AvatarIcon";
 
 type ComponentType = React.FC<LoginPageViewProps>;
 export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
+  const { commonLocale, templatesLocale } = useLocale();
+
   return (
     <Box
       sx={{
@@ -49,7 +53,7 @@ export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
             />
 
             <TextField
-              label="Password"
+              label={commonLocale.get("password")}
               type={props.showPassword ? "text" : "password"}
               name="password"
               fullWidth
@@ -80,7 +84,7 @@ export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
 
             <FormControlLabel
               control={<Checkbox name="remember" color="success" />}
-              label="Remember me"
+              label={commonLocale.get("rememberMe")}
             />
             <Button
               variant="contained"
@@ -93,19 +97,19 @@ export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
               {props.loading ? (
                 <CircularProgress size={24} color="inherit" />
               ) : (
-                "Sign In"
+                commonLocale.get("signIn")
               )}
             </Button>
           </Box>
 
           <Box
             sx={{
-              display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
               mt: 1,
             }}
           >
+            {templatesLocale.get("dontHaveAnAccount")}
             {/* <Link
               component={RouterLink}
               to="#"
@@ -120,7 +124,7 @@ export const LoginPageView: ComponentType = ({ handleSubmit, ...props }) => {
               underline="hover"
               variant="body2"
             >
-              Don’t have an account? Sign Up
+              {commonLocale.get("signUp")}
             </Link>
           </Box>
         </CardContent>

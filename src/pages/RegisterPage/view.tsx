@@ -4,10 +4,12 @@ import { RegisterForm } from "./components/RegisterForm";
 import { AvatarIcon } from "../../components/AvatarIcon";
 import { useLocale } from "../../contexts/Locale";
 import { Link as RouterLink } from "react-router-dom";
+import React from "react";
+import { common } from "@mui/material/colors";
 
 type ComponentType = React.FC<RegisterPageViewProps>;
 export const RegisterPageView: ComponentType = (props) => {
-  const { commonLocale } = useLocale();
+  const { commonLocale, templatesLocale } = useLocale();
   return (
     <Box
       sx={{
@@ -22,23 +24,30 @@ export const RegisterPageView: ComponentType = (props) => {
     >
       <Card sx={{ width: 360, px: 3, py: 4, boxShadow: 4 }}>
         <CardContent sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          <AvatarIcon title={commonLocale.get("createAccount")} />
+          <AvatarIcon title={commonLocale.get("signUp")} />
           <RegisterForm
             loading={props.loading}
             handleSubmit={props.handleSubmit}
             error={props.error}
           />
-        </CardContent>
-        <Box sx={{ display: "flex", mt: 1 }}>
+        <Box
+            sx={{
+              justifyContent: "space-between",
+              alignItems: "center",
+              mt: 1,
+            }}
+          >
+            {templatesLocale.get("alreadyHaveAnAccont")}
           <Link
             component={RouterLink}
             to="/login"
             underline="hover"
             variant="body2"
           >
-            Already have an account? Log In
+            {commonLocale.get("login")}
           </Link>
         </Box>
+        </CardContent>
       </Card>
     </Box>
   );

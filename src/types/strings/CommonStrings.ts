@@ -49,9 +49,13 @@ export interface CommonStrings {
     hockey: string;
     danceClass: string;
     studyWithUs: string;
+    password: string;
+    rememberMe: string;
+    signIn: string;
     signUp: string;
+    confirmPassword: string;
+    login: string;
     emailVerification: string;
-    createAccount: string;
     myBrasaCard: string;
     settings: string;
 }

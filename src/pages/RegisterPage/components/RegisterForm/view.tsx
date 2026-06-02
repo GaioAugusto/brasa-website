@@ -15,15 +15,15 @@ import { useLocale } from "../../../../contexts/Locale";
 
 type ComponentType = React.FC<RegisterFormViewProps>;
 export const RegisterFormView: ComponentType = (props) => {
-  const { commonLocale } = useLocale();
+  const { commonLocale, templatesLocale } = useLocale();
 
   return (
     <Box component="form" onSubmit={props.handleSubmit} sx={{ gap: 2 }}>
       <Typography variant="body1" sx={{ mb: 2 }}>
-        Please fill in the details below to create your account.
+        {templatesLocale.get("pleaseFillInDetails")}
       </Typography>
       <TextField
-        label="First Name"
+        label={commonLocale.get("firstName")}
         type="text"
         name="firstName"
         fullWidth
@@ -32,7 +32,7 @@ export const RegisterFormView: ComponentType = (props) => {
       />
 
       <TextField
-        label="Last Name"
+        label={commonLocale.get("lastName")}
         type="text"
         name="lastName"
         fullWidth
@@ -59,7 +59,7 @@ export const RegisterFormView: ComponentType = (props) => {
         margin="normal"
       />
       <TextField
-        label="Password"
+        label={commonLocale.get("password")}
         type={props.showPassword ? "text" : "password"}
         name="password"
         fullWidth
@@ -90,7 +90,7 @@ export const RegisterFormView: ComponentType = (props) => {
       />
 
       <TextField
-        label="Confirm Password"
+        label={commonLocale.get("confirmPassword")}
         type={props.showPassword ? "text" : "password"}
         name="confirmPassword"
         fullWidth
@@ -116,7 +116,7 @@ export const RegisterFormView: ComponentType = (props) => {
         {props.loading ? (
           <CircularProgress size={24} color="inherit" />
         ) : (
-          commonLocale.get("createAccount")
+          commonLocale.get("signUp")
         )}
       </Button>
     </Box>
