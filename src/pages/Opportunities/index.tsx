@@ -25,7 +25,7 @@ export const Opportunities: ComponentType = () => {
         title: commonLocale.get("volleyballTeam"),
         description: templatesLocale.get("volleyballTeamDescription"),
         dialog: true,
-        image: "/opportunities/students/brasavolei1.jpeg",
+        image: "/opportunities/students/brasavolei1.jpg",
         descriptionDialog: templatesLocale.get("dialogDescription"),
         imageDialog: "/opportunities/students/brasavolei2.jpeg",
         captain: volleyballCaptain,

@@ -1,12 +1,12 @@
 import { TeamCaptain } from "../pages/Opportunities/types";
 
 export const soccerCaptain: TeamCaptain = {
-    name: "Henrique Pedras",
-    phone: "+1 (703) 509-0553",
+    name: "Henrique Braz",
+    phone: "+1 (647) 719-4184",
     email: "henriquepedras38@gmail.com",
-    instagram: "https://www.instagram.com/riquepedras/",
+    instagram: "https://www.instagram.com/_henriquebraz/",
     image: "/opportunities/students/soccerCaptain.jpeg",
-    instagramUser: "@riquepedras",
+    instagramUser: "@_henriquebraz",
 };
 export const volleyballCaptain: TeamCaptain = {
     name: "Paulo Maia",
