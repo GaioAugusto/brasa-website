@@ -3,6 +3,7 @@ import { useAuth } from "../../contexts/auth";
 import { VerificationCodeModal } from "./components/VerificationCodeModal";
 import { RegisterPageProps } from "./types";
 import { RegisterPageView } from "./view";
+import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<RegisterPageProps>;
 export const RegisterPage: ComponentType = () => {
@@ -11,6 +12,7 @@ export const RegisterPage: ComponentType = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const { templatesLocale } = useLocale();
 
     const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
         e.preventDefault();
@@ -24,13 +26,13 @@ export const RegisterPage: ComponentType = () => {
         const confirmPassword = data.get("confirmPassword") as string;
 
         if (password !== confirmPassword) {
-            setError("Passwords do not match.");
+            setError(templatesLocale.get("passwordsDoNotMatch"));
             setLoading(false);
             return;
         }
 
         if (!email.endsWith("@mail.utoronto.ca")) {
-            setError("Please enter a UofT email.");
+            setError(templatesLocale.get("pleaseEnterUoftEmail"));
             setLoading(false);
             return;
         }
@@ -51,7 +53,7 @@ export const RegisterPage: ComponentType = () => {
             ) {
                 shouldOpenModal = true;
             }
-            setError(err?.message || "Could not create account.");
+            setError(err?.message || templatesLocale.get("couldNotCreateAccount"));
         } finally {
             setLoading(false);
         }

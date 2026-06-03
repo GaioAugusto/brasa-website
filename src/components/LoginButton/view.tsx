@@ -1,8 +1,10 @@
 import { LoginButtonViewProps } from "./types";
 import Button from "@mui/material/Button";
+import { useLocale } from "../../contexts/Locale";
 
 type ComponentType = React.FC<LoginButtonViewProps>;
 export const LoginButtonView: ComponentType = ({ handleClick, ...props }) => {
+  const { commonLocale } = useLocale();
   return (
     <Button
       variant="outlined"
@@ -18,7 +20,7 @@ export const LoginButtonView: ComponentType = ({ handleClick, ...props }) => {
         },
       }}
     >
-      Login
+      {commonLocale.get("login")}
     </Button>
   );
 };

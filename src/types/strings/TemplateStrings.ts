@@ -34,10 +34,19 @@ export interface TemplateStrings {
     hockeyDescription: string;
     danceClassDescription: string;
     studyWithUsDescription: string;
+    dontHaveAnAccount: string;
+    pleaseFillInDetails: string;
+    passwordsDoNotMatch: string;
+    pleaseEnterUoftEmail: string;
+    couldNotCreateAccount: string;
+    alreadyHaveAnAccont:string;
     emailVerificationDescription: string;
+    resentVerificationEmail: string;
+    verificationEmailResendFailed: string;
     brasaCardDisclaimerPrefix: string;
     brasaCardDisclaimerBold: string;
     brasaCardDisclaimerSuffix: string;
     pleaseLogin: string;
     settingsComingSoon: string;
+    allRightsReserved: string;
 }

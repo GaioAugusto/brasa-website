@@ -1,10 +1,12 @@
 import { Avatar, Box, Card, Divider, Typography } from "@mui/material";
 import { useAuth } from "../../../../contexts/auth";
 import { BrasaCardViewProps } from "./types";
+import { useLocale } from "../../../../contexts/Locale";
 
 type ComponentType = React.FC<BrasaCardViewProps>;
 export const BrasaCardView: ComponentType = ({ ...props }) => {
     const { user } = useAuth();
+    const { commonLocale } = useLocale();
 
     return (
         <Box
@@ -85,14 +87,14 @@ export const BrasaCardView: ComponentType = ({ ...props }) => {
                     >
                         {user
                             ? `${user.firstName} ${user.lastName}`
-                            : "First Name Last Name"}
+                            : `${commonLocale.get("firstName")} ${commonLocale.get("lastName")}`}
                     </Typography>
                     <Typography
                         variant="body2"
                         color="text.secondary"
                         sx={{ textAlign: "center", mb: 2 }}
                     >
-                        {user ? user.email : "email@example.com"}
+                        {user ? user.email : commonLocale.get("exampleMail")}
                     </Typography>
 
                     <Divider />
@@ -105,7 +107,7 @@ export const BrasaCardView: ComponentType = ({ ...props }) => {
                             }}
                         >
                             <Typography variant="body2" color="text.secondary">
-                                Student ID
+                                Student Number
                             </Typography>
                             <Typography variant="body2" color="text.primary">
                                 <strong>{user?.studentId}</strong>
@@ -119,10 +121,10 @@ export const BrasaCardView: ComponentType = ({ ...props }) => {
                             }}
                         >
                             <Typography variant="body2" color="text.secondary">
-                                Valid Until
+                                {commonLocale.get("validUntil")}
                             </Typography>
                             <Typography variant="body2" color="text.primary">
-                                <strong>May 2026</strong>
+                                <strong>{commonLocale.get("expiryDate")}</strong>
                             </Typography>
                         </Box>
                     </Box>

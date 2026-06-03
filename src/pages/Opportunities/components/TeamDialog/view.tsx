@@ -1,10 +1,12 @@
 import React from "react";
 import { TeamDialogViewProps } from "./types";
 import { FaEnvelope, FaInstagram, FaPhone, FaYoutube } from "react-icons/fa";
+import { useLocale } from "../../../../contexts/Locale";
 
 type ComponentType = React.FC<TeamDialogViewProps>;
 
 export const TeamDialogView: ComponentType = ({ team, onClose }) => {
+  const { commonLocale } = useLocale();
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 relative">
@@ -90,7 +92,7 @@ export const TeamDialogView: ComponentType = ({ team, onClose }) => {
           onClick={onClose}
           className="mt-8 w-full bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
         >
-          Close
+          {commonLocale.get("close")}
         </button>
       </div>
     </div>

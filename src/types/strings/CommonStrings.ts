@@ -49,9 +49,25 @@ export interface CommonStrings {
     hockey: string;
     danceClass: string;
     studyWithUs: string;
+    password: string;
+    rememberMe: string;
+    signIn: string;
     signUp: string;
+    confirmPassword: string;
+    login: string;
     emailVerification: string;
-    createAccount: string;
+    verificationCode: string;
+    verifying: string;
+    verify: string;
+    resending: string;
+    resendCode: string;
+    resendCodeIn: string;
     myBrasaCard: string;
     settings: string;
+    logout: string;
+    exampleMail: string;
+    validUntil: string;
+    expiryDate: string;
+    myAccount: string;
+    close: string;
 }
