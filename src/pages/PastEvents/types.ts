@@ -5,7 +5,18 @@ export interface Event {
   image2?: string;
   description?: string;
 }
+export interface PastEventImage {
+  src: string;
+  alt: string;
+}
+export interface PastEventGallery {
+  id: string;
+  title: string;
+  description: string;
+  images: PastEventImage[];
+}
 export interface PastEventsProps {}
 export interface PastEventsViewProps {
-  events: Event[];
+  events: PastEventGallery[];
+  heroImage: PastEventImage;
 }
