@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Calendar } from "../../components/Calendar";
 import { Divider } from "../../components/Divider";
 import { useLocale } from "../../contexts/Locale";
 import { About } from "./components/About";
@@ -72,6 +73,11 @@ export const HomeView: React.FC = () => {
             {/* Join Section */}
             <section id="join" className="bg-gray-100">
                 <Join />
+            </section>
+            <Divider />
+
+            <section id="calendar" className="bg-gray-100 px-4 py-16">
+                <Calendar title="Calendar" />
             </section>
         </div>
     );
