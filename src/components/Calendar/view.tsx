@@ -1,5 +1,10 @@
 import React from "react";
-import { FaChevronLeft, FaChevronRight, FaPlus } from "react-icons/fa";
+import {
+    FaChevronLeft,
+    FaChevronRight,
+    FaFileDownload,
+    FaPlus,
+} from "react-icons/fa";
 import { CalendarViewProps } from "./types";
 import { WEEKDAY_LABELS } from "./utils";
 
@@ -18,6 +23,7 @@ export const CalendarView: ComponentType = ({
     onPrevMonth,
     onNextMonth,
     onToday,
+    onExport,
     onAddEvent,
     onSelectEvent,
 }) => {
@@ -37,6 +43,17 @@ export const CalendarView: ComponentType = ({
                 </div>
 
                 <div className="flex items-center gap-2">
+                    {isAdmin && (
+                        <button
+                            type="button"
+                            onClick={onExport}
+                            title="Download this month as a PDF to style in Canva"
+                            className="inline-flex items-center gap-2 rounded-md bg-green-800 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-green-900"
+                        >
+                            <FaFileDownload className="h-4 w-4" />
+                            <span className="hidden sm:inline">Export PDF</span>
+                        </button>
+                    )}
                     <button
                         type="button"
                         onClick={onToday}
@@ -137,7 +154,7 @@ export const CalendarView: ComponentType = ({
                                         type="button"
                                         onClick={() => onSelectEvent(event)}
                                         title={event.title}
-                                        className="block w-full truncate rounded bg-green-100 px-1.5 py-0.5 text-left text-xs font-medium text-green-900 transition hover:bg-green-200"
+                                        className="block w-full break-words rounded bg-green-100 px-1.5 py-0.5 text-left text-xs font-medium leading-tight text-green-900 transition line-clamp-3 hover:bg-green-200"
                                     >
                                         {event.title}
                                     </button>
