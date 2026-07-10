@@ -17,6 +17,8 @@ export interface CalendarViewProps {
     onPrevMonth: () => void;
     onNextMonth: () => void;
     onToday: () => void;
+    /** Admin-only: download the viewed month as a PDF for styling in Canva. */
+    onExport: () => void;
     onAddEvent: (dateKey: string) => void;
     onSelectEvent: (event: CalendarEvent) => void;
 }

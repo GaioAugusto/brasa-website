@@ -13,6 +13,7 @@ import {
 } from "../../types/event";
 import { isAdminIdToken } from "../../utilities/authClaims";
 import { EventModal } from "./components/EventModal";
+import { exportMonthToPdf } from "./pdfExport";
 import { CalendarProps } from "./types";
 import {
     buildMonthGrid,
@@ -165,6 +166,9 @@ export const Calendar: ComponentType = ({ title }) => {
     const eventsByDate = useMemo(() => groupEventsByDate(events), [events]);
     const monthLabel = `${MONTH_LABELS[month]} ${year}`;
 
+    const handleExport = () =>
+        exportMonthToPdf({ year, month, monthLabel, events });
+
     return (
         <>
             <CalendarView
@@ -178,6 +182,7 @@ export const Calendar: ComponentType = ({ title }) => {
                 onPrevMonth={handlePrevMonth}
                 onNextMonth={handleNextMonth}
                 onToday={handleToday}
+                onExport={handleExport}
                 onAddEvent={(date) => setModal({ mode: "create", date })}
                 onSelectEvent={(event) => setModal({ mode: "edit", event })}
             />
