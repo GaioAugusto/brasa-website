@@ -27,6 +27,9 @@ jobs:
             - name: Run lint
               run: npm run lint --if-present
 
+            - name: Run tests
+              run: npm test
+
             - name: Build
               env:
                   VITE_AWS_COGNITO_USER_POOL_ID: ${{ vars.VITE_AWS_COGNITO_USER_POOL_ID }}
