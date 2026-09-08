@@ -38,14 +38,17 @@ const fitText = (doc: jsPDF, text: string, maxWidth: number): string => {
 /**
  * Renders one month as a landscape, vector PDF (real text + lines, built-in
  * Helvetica), which Canva imports as editable text/shape layers so an admin can
- * restyle it. Triggers a browser download.
+ * restyle it.
+ *
+ * Returns the document and its filename rather than saving, so the drawing
+ * pipeline can be exercised in tests without touching the filesystem.
  */
-export const exportMonthToPdf = ({
+export const buildMonthPdf = ({
     year,
     month,
     monthLabel,
     events,
-}: ExportMonthOptions): void => {
+}: ExportMonthOptions): { doc: jsPDF; filename: string } => {
     const doc = new jsPDF({
         orientation: "landscape",
         unit: "pt",
@@ -158,5 +161,14 @@ export const exportMonthToPdf = ({
         }
     });
 
-    doc.save(`brasa-calendar-${toMonthParam(year, month)}.pdf`);
+    return {
+        doc,
+        filename: `brasa-calendar-${toMonthParam(year, month)}.pdf`,
+    };
+};
+
+/** Renders the month and triggers a browser download. */
+export const exportMonthToPdf = (options: ExportMonthOptions): void => {
+    const { doc, filename } = buildMonthPdf(options);
+    doc.save(filename);
 };
