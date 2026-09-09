@@ -26,6 +26,38 @@ The codebase is organized by feature and role:
 - `src/services`: API integration layer (users, auth registration bridge, contact)
 - `src/resources`: Translation dictionaries (`en-US`, `pt-BR`)
 - `src/types`: Domain and shared TypeScript types
+- `src/seo`: Per-route metadata, structured data, and sitemap generation
+
+## SEO
+
+`src/seo/routes.ts` is the single source of truth for per-route SEO. Each entry
+carries the page title, meta description, breadcrumb label and whether the page
+may be indexed.
+
+Adding a route to `src/App.tsx` means adding an entry there too — a test in
+`src/seo/seo.test.ts` fails if the two drift apart. Everything else follows from
+that table:
+
+- `useSeo` (mounted once in `App.tsx`) sets the title, description, canonical
+  URL, Open Graph/Twitter tags and robots directives on every navigation.
+- `Breadcrumbs` renders the visible trail, and `useSeo` emits the matching
+  `BreadcrumbList` structured data.
+- A Vite plugin writes `sitemap.xml` and `robots.txt` into `dist/` at build
+  time. **They are generated, not stored in `public/`** — edit the route table
+  instead.
+
+Sitewide `Organization` and `WebSite` structured data lives statically in
+`index.html` so crawlers that do not execute JavaScript can still read it.
+
+### Known limitation
+
+The site is a client-rendered SPA: every URL is served the same `index.html`,
+and per-page metadata is only applied after React mounts. Googlebot executes
+JavaScript and sees the correct tags, but link previewers that do not — Facebook,
+LinkedIn, WhatsApp, Slack, iMessage — only ever see the static defaults in
+`index.html`. Fixing that properly means prerendering each route to its own HTML
+file at build time.
+
 
 At runtime, the app flow is:
 

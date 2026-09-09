@@ -1,6 +1,7 @@
 import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import { defineConfig } from "vitest/config";
+import { seoFiles } from "./src/seo/vitePluginSeoFiles";
 
 export default defineConfig({
     plugins: [
@@ -12,6 +13,7 @@ export default defineConfig({
                 namedExport: "ReactComponent",
             },
         }),
+        seoFiles(),
     ],
     envPrefix: ["VITE_", "REACT_APP_"],
     test: {

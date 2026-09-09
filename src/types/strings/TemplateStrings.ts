@@ -49,4 +49,7 @@ export interface TemplateStrings {
     pleaseLogin: string;
     settingsComingSoon: string;
     allRightsReserved: string;
+    notFoundTitle: string;
+    notFoundDescription: string;
+    notFoundBackHome: string;
 }

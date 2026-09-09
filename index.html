@@ -5,10 +5,72 @@
         <link rel="icon" href="/logos/GoodLogo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#000000" />
-        <meta name="description" content="BRASA UofT website" />
-        <link rel="apple-touch-icon" href="/logo192.png" />
+        <link rel="apple-touch-icon" href="/logos/GoodLogo.png" />
         <link rel="manifest" href="/manifest.json" />
-        <title>BRASA UofT</title>
+
+        <title>BRASA at UofT | Brazilian Student Association</title>
+        <meta
+            name="description"
+            content="BRASA at UofT is the largest Brazilian student association in Canada, connecting Brazilian students at the University of Toronto through events, workshops and a supportive community."
+        />
+
+        <!--
+            Sitewide social defaults. og:url and rel=canonical are deliberately
+            absent: this one shell is served for every route, so a hardcoded URL
+            here would tell crawlers that every page is the home page. useSeo
+            sets both per route once React mounts.
+        -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="BRASA at UofT" />
+        <meta
+            property="og:title"
+            content="BRASA at UofT | Brazilian Student Association"
+        />
+        <meta
+            property="og:description"
+            content="The largest Brazilian student association in Canada, connecting Brazilian students at the University of Toronto."
+        />
+        <meta
+            property="og:image"
+            content="https://brasauoft.com/homePage/picnic1.jpeg"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:image"
+            content="https://brasauoft.com/homePage/picnic1.jpeg"
+        />
+
+        <!--
+            Static structured data, so it is visible to crawlers that do not run
+            JavaScript. Per-page BreadcrumbList markup is added at runtime.
+        -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "Organization",
+                        "@id": "https://brasauoft.com/#organization",
+                        "name": "BRASA at UofT",
+                        "alternateName": "Brazilian Student Association at the University of Toronto",
+                        "url": "https://brasauoft.com",
+                        "logo": "https://brasauoft.com/logos/GoodLogo.png",
+                        "description": "The largest Brazilian student association in Canada, connecting Brazilian students at the University of Toronto through events, workshops and a supportive community.",
+                        "sameAs": ["https://www.instagram.com/brasauoft/"]
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://brasauoft.com/#website",
+                        "url": "https://brasauoft.com",
+                        "name": "BRASA at UofT",
+                        "inLanguage": "en",
+                        "publisher": {
+                            "@id": "https://brasauoft.com/#organization"
+                        }
+                    }
+                ]
+            }
+        </script>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
