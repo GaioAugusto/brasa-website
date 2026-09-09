@@ -1,6 +1,6 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { describe, expect, it } from "vitest";
 import { CalendarEvent } from "../../types/event";
-import { exportMonthToPdf } from "./pdfExport";
+import { buildMonthPdf } from "./pdfExport";
 
 const makeEvent = (date: string, title: string): CalendarEvent => ({
     id: `${date}-${title}`,
@@ -10,26 +10,14 @@ const makeEvent = (date: string, title: string): CalendarEvent => ({
     updatedAt: "2026-06-01T00:00:00Z",
 });
 
-describe("exportMonthToPdf", () => {
-    // jsPDF's save() reaches for browser download APIs jsdom doesn't implement;
-    // stub them so the test exercises the drawing pipeline, not the download.
-    beforeEach(() => {
-        vi.stubGlobal("URL", {
-            ...URL,
-            createObjectURL: vi.fn(() => "blob:mock"),
-            revokeObjectURL: vi.fn(),
-        });
-        vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(
-            () => {},
-        );
-    });
+// These exercise buildMonthPdf rather than exportMonthToPdf: outside a real
+// browser jsPDF's save() falls back to writing the file with fs, which would
+// litter PDFs into the repo root on every test run.
+describe("buildMonthPdf", () => {
+    const byteLength = (doc: ReturnType<typeof buildMonthPdf>["doc"]): number =>
+        (doc.output("arraybuffer") as ArrayBuffer).byteLength;
 
-    afterEach(() => {
-        vi.restoreAllMocks();
-        vi.unstubAllGlobals();
-    });
-
-    it("renders a month with overflow + long titles without throwing", () => {
+    it("renders a month with overflow + long titles", () => {
         const events: CalendarEvent[] = [
             makeEvent("2026-06-15", "General Meeting"),
             makeEvent(
@@ -43,24 +31,42 @@ describe("exportMonthToPdf", () => {
             makeEvent("2026-06-30", "Month end"),
         ];
 
-        expect(() =>
-            exportMonthToPdf({
-                year: 2026,
-                month: 5, // June — starts mid-week, exercises grid padding
-                monthLabel: "June 2026",
-                events,
-            }),
-        ).not.toThrow();
+        const { doc, filename } = buildMonthPdf({
+            year: 2026,
+            month: 5, // June — starts mid-week, exercises grid padding
+            monthLabel: "June 2026",
+            events,
+        });
+
+        expect(filename).toBe("brasa-calendar-2026-06.pdf");
+        expect(byteLength(doc)).toBeGreaterThan(0);
+    });
+
+    it("collapses events that do not fit into a '+N more' line", () => {
+        // Far more events than any cell can show, so the overflow branch runs.
+        const events = Array.from({ length: 40 }, (_, index) =>
+            makeEvent("2026-06-15", `Event ${index + 1}`),
+        );
+
+        const { doc } = buildMonthPdf({
+            year: 2026,
+            month: 5,
+            monthLabel: "June 2026",
+            events,
+        });
+
+        expect(byteLength(doc)).toBeGreaterThan(0);
     });
 
     it("handles an empty month", () => {
-        expect(() =>
-            exportMonthToPdf({
-                year: 2026,
-                month: 0,
-                monthLabel: "January 2026",
-                events: [],
-            }),
-        ).not.toThrow();
+        const { doc, filename } = buildMonthPdf({
+            year: 2026,
+            month: 0,
+            monthLabel: "January 2026",
+            events: [],
+        });
+
+        expect(filename).toBe("brasa-calendar-2026-01.pdf");
+        expect(byteLength(doc)).toBeGreaterThan(0);
     });
 });

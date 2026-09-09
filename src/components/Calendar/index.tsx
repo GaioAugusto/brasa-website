@@ -13,7 +13,6 @@ import {
 } from "../../types/event";
 import { isAdminIdToken } from "../../utilities/authClaims";
 import { EventModal } from "./components/EventModal";
-import { exportMonthToPdf } from "./pdfExport";
 import { CalendarProps } from "./types";
 import {
     buildMonthGrid,
@@ -166,8 +165,16 @@ export const Calendar: ComponentType = ({ title }) => {
     const eventsByDate = useMemo(() => groupEventsByDate(events), [events]);
     const monthLabel = `${MONTH_LABELS[month]} ${year}`;
 
-    const handleExport = () =>
-        exportMonthToPdf({ year, month, monthLabel, events });
+    // Loaded on demand so jsPDF stays out of the initial bundle — only admins
+    // ever trigger this, and the library is ~130 kB gzipped.
+    const handleExport = async () => {
+        try {
+            const { exportMonthToPdf } = await import("./pdfExport");
+            exportMonthToPdf({ year, month, monthLabel, events });
+        } catch (exportError) {
+            setError(errorMessage(exportError, "Failed to export calendar."));
+        }
+    };
 
     return (
         <>
